@@ -1,0 +1,7 @@
+{
+  "editor.linkedEditing": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "css.styleSheets": ["*.css"],
+  "prettier.configPath": ".prettierrc"
+}
