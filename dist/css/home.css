@@ -1,41 +1,37 @@
 @import "output.css";
 
-#home .text-overlay, .text-overlay * {
-    font-family: 'Gobold Thin', sans-serif !important;
-    color: var(--main-bg-color);
-    background: transparent;
-  }
-  
-  #home .banner {
-    aspect-ratio: 10/2;
-  }
-  
-  #home-posts p,
-  #home-welcome p {
-    text-align: justify;
-  }
-  
-  #home-block {
-    align-items: normal
-  }
-  
-  #home-posts {
-    flex: 3
-  }
-  
-  #home-links {
-    flex: 1;
-  }
-  
-  #latest-posts .date-time,
-  #home-links h6 {
-    background-color: var(--alt-bg-color);
-    margin: min(1.5vw, 0.5rem) 0;
-    padding: min(1.5vw, 0.5rem) min(1.5vw, 0.5rem);
-    border-top: min(1vw, 0.33rem) solid var(--accent-bg-color);
-  }
-  
-  .blog-post-short {
-    box-shadow: 0 0 4px #ddd;
-    border: 1px solid #ddd;
-  }
+#home .text-overlay,
+.text-overlay * {
+	font-family: 'Gobold Thin', sans-serif !important;
+	color: var(--main-bg-color);
+	background: transparent;
+}
+
+#home .banner {
+	aspect-ratio: 10/2;
+}
+
+#home-block {
+	align-items: normal
+}
+
+#home-posts {
+	flex: 3
+}
+
+#home-links {
+	flex: 1;
+}
+
+#latest-posts .date-time,
+#home-links .header-small {
+	background-color: var(--alt-bg-color);
+	margin: min(4vh, 1rem) 0;
+	padding: min(2vh, 0.5rem) min(1.5vw, 0.5rem);
+	border-top: min(1vh, 0.25rem) solid var(--accent-bg-color);
+}
+
+.blog-post-short {
+	box-shadow: 0 0 4px #ddd;
+	border: 1px solid #ddd;
+}
