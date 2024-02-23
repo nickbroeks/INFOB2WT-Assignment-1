@@ -1,9 +1,5 @@
 @import "output.css";
 
-html * {
-  background: black;
-}
-
 h1{
   font-family: "Roboto", cursive  !important;
   color: rgb(254, 231, 231) !important;
@@ -24,10 +20,6 @@ h1{
   font-family: "Roboto", cursive  !important;
   color: rgb(254, 231, 231);
   font-size: 1.5rem;
-}
-
-.section-container-full {
-	margin-bottom: 3rem;
 }
 
 #character-block {
