@@ -8,7 +8,13 @@
 }
 
 #home .banner {
-	aspect-ratio: 10/2;
+	aspect-ratio: 10/3;
+}
+
+@media (max-width: 1200px) {
+	#home .banner {
+		aspect-ratio: 10/4;
+	}
 }
 
 #home-block {
@@ -29,9 +35,4 @@
 	margin: min(4vh, 1rem) 0;
 	padding: min(2vh, 0.5rem) min(1.5vw, 0.5rem);
 	border-top: min(1vh, 0.25rem) solid var(--accent-bg-color);
-}
-
-.blog-post-short {
-	box-shadow: 0 0 4px #ddd;
-	border: 1px solid #ddd;
 }

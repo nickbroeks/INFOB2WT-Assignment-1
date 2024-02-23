@@ -4,7 +4,7 @@
 	align-items: normal
 }
 
-#news-post {
+.news-post {
 	flex: 6
 }
 
@@ -20,7 +20,10 @@
 	border-top: min(1vh, 0.25rem) solid var(--accent-bg-color);
 }
 
-.blog-post-short {
-	box-shadow: 0 0 4px #ddd;
-	border: 1px solid #ddd;
+#news-block .comments-section .comment * {
+	text-align: justify;
+}
+
+#news-block .comments-section .comment .comment-meta {
+
 }
