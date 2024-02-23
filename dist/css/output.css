@@ -165,7 +165,13 @@ html .hidden {
 
 @media (min-width: 1200px) {
 	.section-container {
-		padding: 2vh 15vw;
+		padding: 2vh 20vw;
+	}
+}
+
+@media (min-width: 1200px) {
+	.section-container-narrow {
+		padding: 2vh 30vw;
 	}
 }
 
