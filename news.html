@@ -1,118 +1,354 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>A Song of Ice and Fire | Fanpage</title>
-      <link
-         href="https://fonts.cdnfonts.com/css/sf-pro-display"
-         rel="stylesheet"
-         />
-      <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
-      <link rel="stylesheet" type="text/css" href="dist/css/news.css" />
-   </head>
-   <body id="news">
-      <nav id="nav-bar" class="">
-         <div class="middle-section">
-            <a href="index.html">Home</a>
-            <a href="News.html">News</a>
-         </div>
-         <div id="nav-middle-section" class="middle-section">
-            <a
-               href="index.html"
-               style="
-               font-family: 'Gobold Thin', sans-serif !important;
-               font-size: min(4vw, 1.33rem);
-               letter-spacing: min(0.6vw, 0.2rem);
-               "
-               >ASOIAF</a
-               >
-         </div>
-         <div id="nav-right-section" class="middle-section">
-            <a href="summary.html">Book Summary</a>
-            <a href="stats.html">Stats</a>
-            <a href="contact.html">Contact</a>
-         </div>
-      </nav>
-      <div class="air"></div>
-      <section class="section-container fill-height">
-         <div id="news-block" class="flex-container-row fill-width">
-            <div class="news-post">
-            <div id="" class="blog-post-short light-border">
-               <div>
-                  <h1 class="header-medium">Speculations and Theories: What's Next for the Song of Ice and Fire Universe?</h1>
-                  <div class="fill-width">
-                     <p class="date-time">Posted on February 22, 2024 by MaesterInsights</p>
-                  </div>
-               </div>
-               <div>
-                  <p class="text-justify">George R.R. Martin's A Song of Ice and Fire series has captivated readers and viewers alike with its rich tapestry of characters, intricate political intrigue, and epic battles. As fans eagerly await the release of "The Winds of Winter," the long-awaited sixth installment in the series, speculation runs rampant about what the future holds for Westeros and its inhabitants.</p>
-                  <p class="text-justify">At the heart of many fan theories is the question of Jon Snow's parentage. Throughout the series, hints and clues have been scattered regarding Jon's mysterious origins, leading many to believe that he is not the illegitimate son of Eddard Stark, but rather the child of Lyanna Stark and Rhaegar Targaryen. This theory, commonly known as "R+L=J," gained traction early on and has only grown more compelling as the story has progressed. If true, Jon Snow would have a legitimate claim to the Iron Throne, setting the stage for a dramatic power struggle in Westeros.</p>
-                  <p class="text-justify">Another character whose fate hangs in the balance is Daenerys Targaryen, the exiled princess with dreams of reclaiming her birthright. Throughout her journey, Daenerys has faced countless challenges and adversaries, leading many to wonder whether her ultimate destiny is one of triumph or tragedy. Will she fulfill her destiny as the prophesied savior Azor Ahai, wielding Lightbringer against the forces of darkness? Or will she succumb to the temptations of power and become the very thing she sought to overthrow?</p>
-                  <p class="text-justify">The prophecies surrounding Azor Ahai have been a source of much speculation and debate among fans of the series. According to legend, Azor Ahai was a hero who once defeated the darkness with the aid of a magical sword called Lightbringer. Many believe that either Jon Snow or Daenerys Targaryen—or perhaps both—could be the reincarnation of Azor Ahai, destined to lead the fight against the White Walkers and their army of the dead. However, interpretations of the prophecies vary widely, leaving room for endless conjecture about how they will ultimately be fulfilled.</p>
-                  <p class="text-justify">In addition to these central plotlines, countless other characters and story arcs contribute to the rich tapestry of Martin's world. From the political machinations of the Lannisters and the Tyrells to the brewing conflict in the North between the Starks and the Boltons, the stage is set for a climactic showdown that will reshape the fate of Westeros.</p>
-                  <p class="text-justify">Of course, with George R.R. Martin at the helm, nothing is ever certain    in the world of A Song of Ice and Fire. The author has made a name for himself by subverting expectations and defying genre conventions, leaving readers on the edge of their seats with each twist and turn of the plot. As such, any speculation about the future of the series must be taken with a grain of salt, as Martin is known for his willingness to upend even the most carefully laid theories.</p>
-                  <p class="text-justify">Nevertheless, the act of speculating and theorizing about the future of A Song of Ice and Fire is part of what makes the series so enduringly popular. Fans delight in dissecting every detail of the narrative, searching for clues and hidden meanings that might hint at what is to come. Whether debating the true identity of Azor Ahai or the significance of a seemingly minor character's actions, the community surrounding Martin's work is as passionate and dedicated as ever.</p>
-                  <p class="text-justify">In conclusion, the future of the Song of Ice and Fire universe is shrouded in mystery and uncertainty, but that hasn't stopped fans from indulging in speculation and theory crafting. From Jon Snow's parentage to the prophecies of Azor Ahai, there are countless mysteries yet to be unraveled, and the journey promises to be as thrilling as ever. As we eagerly await the release of "The Winds of Winter," one thing is certain: the world of Westeros will never be the same again.</p>
-               </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Song of Ice and Fire | Fanpage</title>
+    <link
+      href="https://fonts.cdnfonts.com/css/sf-pro-display"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="dist/css/news.css" />
+  </head>
+  <body id="news">
+    <nav id="js-nav-bar" class="body__nav nav-bar js-nav-bar--solid">
+      <div class="nav-bar__block">
+        <a class="nav-bar__link" href="index.html">Home</a>
+        <a class="nav-bar__link" href="News.html">News</a>
+      </div>
+      <div class="nav-bar__block">
+        <a class="nav-bar__link nav-bar__link--titel" href="index.html"
+          >ASOIAF</a
+        >
+      </div>
+      <div id="nav-right-section" class="middle-section">
+        <a class="nav-bar__link" href="summary.html">Book Summary</a>
+        <a class="nav-bar__link" href="stats.html">Stats</a>
+        <a class="nav-bar__link" href="contact.html">Contact</a>
+      </div>
+    </nav>
+    <section class="section-container fill-height">
+      <div id="news-block" class="flex-container-row fill-width">
+        <div class="news-post">
+          <div id="" class="blog-post-short light-border">
+            <div>
+              <h1 class="header-medium">
+                Speculations and Theories: What's Next for the Song of Ice and
+                Fire Universe?
+              </h1>
+              <div class="fill-width">
+                <p class="date-time">
+                  Posted on February 22, 2024 by MaesterInsights
+                </p>
+              </div>
             </div>
-            <div id="" class="comments-section">
-               <div class="comment light-border">
-                  <h1 class="comment-meta header-small">Posted by: WesterosiWatcher</h1>
-                  <p class="comment-content">I've been following the "R+L=J" theory for years now, and I can't wait to see if it finally gets confirmed in "The Winds of Winter"! It would definitely add a whole new layer of complexity to the struggle for the Iron Throne.</p>
-                  <div class="comment-actions clearfix">
-                     <button class="btn-main btn-small upvote-count float-left">10</button>
-                     <button class="btn-main btn-small upvote-button float-left">Upvote</button>
-                     <button class="btn-main btn-small reply-button float-right">Reply</button>
-                     <button class="btn-main btn-small quote-button float-right">Quote</button>
-                  </div>
-               </div>
-               <div class="comment light-border">
-                  <h1 class="comment-meta header-small">Posted by: DragonQueen</h1>
-                  <p class="comment-content">As much as I want to believe in the Azor Ahai prophecy, I can't shake this feeling that it's all just a red herring. George R.R. Martin loves to subvert expectations, so who knows what direction he'll take with Daenerys and Jon Snow's characters?</p>
-                  <div class="comment-actions clearfix">
-                     <button class="btn-main btn-small upvote-count float-left">10</button>
-                     <button class="btn-main btn-small upvote-button float-left">Upvote</button>
-                     <button class="btn-main btn-small reply-button float-right">Reply</button>
-                     <button class="btn-main btn-small quote-button float-right">Quote</button>
-                  </div>
-               </div>
-               <div class="comment light-border">
-                  <h1 class="comment-meta header-small">Posted by: CitadelScholar</h1>
-                  <p class="comment-content">The political dynamics in Westeros are so fascinating! I'm especially intrigued by the potential clash between the Starks and the Boltons in the North. With the White Walkers looming, will they put aside their differences to face a common enemy?</p>
-                  <div class="comment-actions clearfix">
-                     <button class="btn-main btn-small upvote-count float-left">10</button>
-                     <button class="btn-main btn-small upvote-button float-left">Upvote</button>
-                     <button class="btn-main btn-small reply-button float-right">Reply</button>
-                     <button class="btn-main btn-small quote-button float-right">Quote</button>
-                  </div>
-               </div>
-            </div>          
-         </div>
-            <div id="news-links" class="light-border">
-               <h1 class="header-small">Upcoming Activities</h1>
-              <p><a href="#">Join the Night's Watch</a></p>
-              <p><a href="#">Train with the Faceless Men</a></p>
-              <p><a href="#">Explore the Citadel</a></p>
-              <p><a href="#">Attend a Tourney in King's Landing</a></p>
-              <h1 class="header-small">Latest News</h1>
-              <p><a href="#">Rumors Swirl in the Red Keep</a></p>
-              <p><a href="#">Dragons Spotted Beyond the Wall</a></p>
-              <p><a href="#">Winterfell Prepares for the Long Night</a></p>
-              <p><a href="#">A New Claimant to the Iron Throne Emerges</a></p>
-              <h1 class="header-small">Official Sites</h1>
-              <p><a href="#">Maester's Archives</a></p>
-              <p><a href="#">King's Landing Gazette</a></p>
-              <p><a href="#">Wall Watchers' Reports</a></p>
-              <p><a href="#">Iron Throne Bulletin</a></p>
-              <h1 class="header-small">Featured Sites</h1>
-              <p><a href="#">Valyrian Steel Armory</a></p>
-              <p><a href="#">Free Cities Traders Guild</a></p>
-              <p><a href="#">Beyond the Narrow Sea Travel Agency</a></p>
-              <p><a href="#">Dragonstone Tavern</a></p>
+            <div>
+              <p class="text-justify">
+                George R.R. Martin's A Song of Ice and Fire series has
+                captivated readers and viewers alike with its rich tapestry of
+                characters, intricate political intrigue, and epic battles. As
+                fans eagerly await the release of "The Winds of Winter," the
+                long-awaited sixth installment in the series, speculation runs
+                rampant about what the future holds for Westeros and its
+                inhabitants.
+              </p>
+              <p class="text-justify">
+                At the heart of many fan theories is the question of Jon Snow's
+                parentage. Throughout the series, hints and clues have been
+                scattered regarding Jon's mysterious origins, leading many to
+                believe that he is not the illegitimate son of Eddard Stark, but
+                rather the child of Lyanna Stark and Rhaegar Targaryen. This
+                theory, commonly known as "R+L=J," gained traction early on and
+                has only grown more compelling as the story has progressed. If
+                true, Jon Snow would have a legitimate claim to the Iron Throne,
+                setting the stage for a dramatic power struggle in Westeros.
+              </p>
+              <p class="text-justify">
+                Another character whose fate hangs in the balance is Daenerys
+                Targaryen, the exiled princess with dreams of reclaiming her
+                birthright. Throughout her journey, Daenerys has faced countless
+                challenges and adversaries, leading many to wonder whether her
+                ultimate destiny is one of triumph or tragedy. Will she fulfill
+                her destiny as the prophesied savior Azor Ahai, wielding
+                Lightbringer against the forces of darkness? Or will she succumb
+                to the temptations of power and become the very thing she sought
+                to overthrow?
+              </p>
+              <p class="text-justify">
+                The prophecies surrounding Azor Ahai have been a source of much
+                speculation and debate among fans of the series. According to
+                legend, Azor Ahai was a hero who once defeated the darkness with
+                the aid of a magical sword called Lightbringer. Many believe
+                that either Jon Snow or Daenerys Targaryen—or perhaps both—could
+                be the reincarnation of Azor Ahai, destined to lead the fight
+                against the White Walkers and their army of the dead. However,
+                interpretations of the prophecies vary widely, leaving room for
+                endless conjecture about how they will ultimately be fulfilled.
+              </p>
+              <p class="text-justify">
+                In addition to these central plotlines, countless other
+                characters and story arcs contribute to the rich tapestry of
+                Martin's world. From the political machinations of the
+                Lannisters and the Tyrells to the brewing conflict in the North
+                between the Starks and the Boltons, the stage is set for a
+                climactic showdown that will reshape the fate of Westeros.
+              </p>
+              <p class="text-justify">
+                Of course, with George R.R. Martin at the helm, nothing is ever
+                certain in the world of A Song of Ice and Fire. The author has
+                made a name for himself by subverting expectations and defying
+                genre conventions, leaving readers on the edge of their seats
+                with each twist and turn of the plot. As such, any speculation
+                about the future of the series must be taken with a grain of
+                salt, as Martin is known for his willingness to upend even the
+                most carefully laid theories.
+              </p>
+              <p class="text-justify">
+                Nevertheless, the act of speculating and theorizing about the
+                future of A Song of Ice and Fire is part of what makes the
+                series so enduringly popular. Fans delight in dissecting every
+                detail of the narrative, searching for clues and hidden meanings
+                that might hint at what is to come. Whether debating the true
+                identity of Azor Ahai or the significance of a seemingly minor
+                character's actions, the community surrounding Martin's work is
+                as passionate and dedicated as ever.
+              </p>
+              <p class="text-justify">
+                In conclusion, the future of the Song of Ice and Fire universe
+                is shrouded in mystery and uncertainty, but that hasn't stopped
+                fans from indulging in speculation and theory crafting. From Jon
+                Snow's parentage to the prophecies of Azor Ahai, there are
+                countless mysteries yet to be unraveled, and the journey
+                promises to be as thrilling as ever. As we eagerly await the
+                release of "The Winds of Winter," one thing is certain: the
+                world of Westeros will never be the same again.
+              </p>
+            </div>
           </div>
-         </div>
-      </section>
-      <footer class="alt-section">
-        <h5>&copy; 2024 All rights reserved.</h5>
-      </footer>
+          <div id="" class="comments-section">
+            <div class="comment light-border">
+              <h1 class="comment-meta header-small">
+                Posted by: WesterosiWatcher
+              </h1>
+              <p class="comment-content">
+                I've been following the "R+L=J" theory for years now, and I
+                can't wait to see if it finally gets confirmed in "The Winds of
+                Winter"! It would definitely add a whole new layer of complexity
+                to the struggle for the Iron Throne.
+              </p>
+              <div class="comment-actions clearfix">
+                <button class="btn-main btn-small upvote-count float-left">
+                  10
+                </button>
+                <button class="btn-main btn-small upvote-button float-left">
+                  Upvote
+                </button>
+                <button class="btn-main btn-small reply-button float-right">
+                  Reply
+                </button>
+                <button class="btn-main btn-small quote-button float-right">
+                  Quote
+                </button>
+              </div>
+            </div>
+            <div class="comment light-border">
+              <h1 class="comment-meta header-small">Posted by: DragonQueen</h1>
+              <p class="comment-content">
+                As much as I want to believe in the Azor Ahai prophecy, I can't
+                shake this feeling that it's all just a red herring. George R.R.
+                Martin loves to subvert expectations, so who knows what
+                direction he'll take with Daenerys and Jon Snow's characters?
+              </p>
+              <div class="comment-actions clearfix">
+                <button class="btn-main btn-small upvote-count float-left">
+                  10
+                </button>
+                <button class="btn-main btn-small upvote-button float-left">
+                  Upvote
+                </button>
+                <button class="btn-main btn-small reply-button float-right">
+                  Reply
+                </button>
+                <button class="btn-main btn-small quote-button float-right">
+                  Quote
+                </button>
+              </div>
+            </div>
+            <div class="comment light-border">
+              <h1 class="comment-meta header-small">
+                Posted by: CitadelScholar
+              </h1>
+              <p class="comment-content">
+                The political dynamics in Westeros are so fascinating! I'm
+                especially intrigued by the potential clash between the Starks
+                and the Boltons in the North. With the White Walkers looming,
+                will they put aside their differences to face a common enemy?
+              </p>
+              <div class="comment-actions clearfix">
+                <button class="btn-main btn-small upvote-count float-left">
+                  10
+                </button>
+                <button class="btn-main btn-small upvote-button float-left">
+                  Upvote
+                </button>
+                <button class="btn-main btn-small reply-button float-right">
+                  Reply
+                </button>
+                <button class="btn-main btn-small quote-button float-right">
+                  Quote
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="news-links" class="light-border text-center">
+          <h1 class="header-small">Upcoming Activities</h1>
+          <ul class="list-item--no-bullets">
+            <li><a href="#">Join the Night's Watch</a></li>
+            <li><a href="#">Train with the Faceless Men</a></li>
+            <li><a href="#">Explore the Citadel</a></li>
+            <li><a href="#">Attend a Tourney in King's Landing</a></li>
+          </ul>
+          <h1 class="header-small">Latest News</h1>
+          <ul class="list-item--no-bullets">
+            <li><a href="#">Rumors Swirl in the Red Keep</a></li>
+            <li><a href="#">Dragons Spotted Beyond the Wall</a></li>
+            <li>
+              <a href="#">Winterfell Prepares for the Long Night</a>
+            </li>
+            <li>
+              <a href="#">A New Claimant to the Iron Throne Emerges</a>
+            </li>
+          </ul>
+          <h1 class="header-small">Official Sites</h1>
+          <ul class="list-item--no-bullets">
+            <li>
+              <a
+                href="http://www.georgerrmartin.com/"
+                alt="George R.R. Martin&#8217;s official site."
+                title="George R.R. Martin&#8217;s official site."
+                >George R.R. Martin</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://bantam-dell.atrandom.com/"
+                alt="Bantam Dell (an imprint of Random House) is the US publisher of A Song of Ice and Fire."
+                title="Bantam Dell (an imprint of Random House) is the US publisher of A Song of Ice and Fire."
+                >Bantam Dell</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://harpervoyagerbooks.co.uk/"
+                alt="Voyager is the UK publisher of A Song of Ice and Fire."
+                title="Voyager is the UK publisher of A Song of Ice and Fire."
+                >Voyager</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.subterraneanpress.com/"
+                alt="Subterranean Press publishes a set of limited editions of A Song of Ice and Fire."
+                title="Subterranean Press publishes a set of limited editions of A Song of Ice and Fire."
+                >Subterranean Press</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.hbo.com/game-of-thrones"
+                alt="HBO&#8217;s site for Game of Thrones."
+                title="HBO&#8217;s site for Game of Thrones."
+                >HBO&#8217;s Game of Thrones</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.makinggameofthrones.com/"
+                alt="HBO&#8217;s production blog for Game of Thrones."
+                title="HBO&#8217;s production blog for Game of Thrones."
+                >Making Game of Thrones</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.darkswordminiatures.com/"
+                alt="The company behind the A Song of Ice and Fire miniatures."
+                title="The company behind the A Song of Ice and Fire miniatures."
+                >Dark Sword Miniatures</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.shirepost.com/"
+                alt="Producers of licensed A Song of Ice and Fire coins."
+                title="Producers of licensed A Song of Ice and Fire coins."
+                >Shire Post Mint</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.valyriansteel.com/"
+                alt="The company behind the weapon replicas based on A Song of Ice and Fire and the weapon and armour replicas based on Game of Thrones."
+                title="The company behind the weapon replicas based on A Song of Ice and Fire and the weapon and armour replicas based on Game of Thrones."
+                >Valyrian Steel</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.agot-genesis.com/"
+                alt="Official site for A Game of Thrones: Genesis."
+                title="Official site for A Game of Thrones: Genesis."
+                >Cyanide Studio (AGoT: Genesis)</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.gameofthrones-rpg.com/"
+                alt="Official site for A Game of Thrones: The Game."
+                title="Official site for A Game of Thrones: The Game."
+                >Cyanide Studio (AGoT: The Game)</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.disruptorbeam.com/"
+                alt="Official site for Game of Thrones: Ascent."
+                title="Official site for Game of Thrones: Ascent."
+                >Disruptor Beam</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.fantasyflightgames.com/"
+                alt="The company behind the A Game of Thrones LCG &amp; board game."
+                title="The company behind the A Game of Thrones LCG &amp; board game."
+                >Fantasy Flight Games</a
+              >
+            </li>
+            <li>
+              <a
+                href="http://www.greenronin.com/"
+                alt="The company behind the A Game of Thrones RPG."
+                title="The company behind the A Game of Thrones RPG."
+                >Green Ronin</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.telltalegames.com/gameofthrones/"
+                alt="The company behind the Game of Thrones series of games."
+                title="The company behind the Game of Thrones series of games."
+                >Telltale Games</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <footer class="alt-section">
+      <h5>&copy; 2024 All rights reserved.</h5>
+    </footer>
+  </body>
+</html>
