@@ -1,32 +1,38 @@
-@import 'output.css';
+@import "output.css";
+
+#home .text-overlay,
+.text-overlay * {
+	font-family: 'Gobold Thin', sans-serif !important;
+	color: var(--main-bg-color);
+	background: transparent;
+}
+
+#home .banner {
+	aspect-ratio: 10/3;
+}
+
+@media (max-width: 1200px) {
+	#home .banner {
+		aspect-ratio: 10/4;
+	}
+}
 
 #home-block {
-   align-items: normal;
+	align-items: normal
 }
 
 #home-posts {
-   flex: 7;
+	flex: 7
 }
 
 #home-links {
-   flex: 3;
+	flex: 3;
 }
 
 #latest-posts .date-time,
 #home-links .header-small {
-   background-color: var(--alt-bg-color);
-   margin: min(4vh, 1rem) 0;
-   padding: min(2vh, 0.5rem) min(1.5vw, 0.5rem);
-   border-top: min(1vh, 0.25rem) solid var(--accent-bg-color);
-}
-
-#home-links ul {
-   padding: 0;
-
-}
-
-#home-links li {
-   font-size: min(3vw, 1rem);
-   margin-top: min(4vh, 1rem);
-   margin-bottom: min(2vh, 0.5rem);
+	background-color: var(--alt-bg-color);
+	margin: min(4vh, 1rem) 0;
+	padding: min(2vh, 0.5rem) min(1.5vw, 0.5rem);
+	border-top: min(1vh, 0.25rem) solid var(--accent-bg-color);
 }
