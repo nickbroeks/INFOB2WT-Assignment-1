@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
    <head>
       <meta charset="UTF-8" />
@@ -7,147 +7,232 @@
       <link
          href="https://fonts.cdnfonts.com/css/sf-pro-display"
          rel="stylesheet"
-         />
+      />
       <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" href="dist/css/home.css" />
       <script src="dist/src/ts/nav.js"></script>
    </head>
    <body id="home">
-      <nav id="nav-bar" class="">
-         <div class="middle-section">
-            <a href="index.html">Home</a>
-            <a href="News.html">News</a>
-            <a href="summary.html">Book Summary</a>
+      <nav id="js-nav-bar" class="body__nav nav-bar js-nav-bar--transparent">
+         <div class="nav-bar__block">
+            <a class="nav-bar__link" href="index.html">Home</a>
+            <a class="nav-bar__link" href="News.html">News</a>
+            <a class="nav-bar__link" href="summary.html">Book Summary</a>
          </div>
-         <div id="nav-middle-section" class="middle-section">
-            <a
-               href="index.html"
-               style="
-               font-family: 'Gobold Thin', sans-serif !important;
-               font-size: min(4vw, 1.33rem);
-               letter-spacing: min(0.6vw, 0.2rem);
-               "
+         <div class="nav-bar__block">
+            <a class="nav-bar__link nav-bar__link--titel" href="index.html"
                >ASOIAF</a
-               >
+            >
          </div>
-         <div id="nav-right-section" class="middle-section">
-            <a href="stats.html">Stats</a>
-            <a href="contact.html">Contact</a>
+         <div class="nav-bar__block">
+            <a class="nav-bar__link" href="stats.html">Stats</a>
+            <a class="nav-bar__link" href="contact.html">Contact</a>
          </div>
       </nav>
-      <section
-         class="accent-section section-container-full fill-height"
+      <main class="body__content body__content--padding-bottom">
+         <section
+            class="section--accent section--fill-height section--full-height-force background-overlay"
          >
-         <div id="base" class="">
             <img
+               class="background-overlay__image"
                src="res/a-song-of-ice-and-fire-tp.jpg"
                alt="Background Banner"
-               class="img-overlayed fill-height"
-               />
-            <div class="text-overlay">
-               <h1 class="title">A Song of Ice and Fire</h1>
-               <h2 class="sub-title">Fanpage</h2>
+            />
+            <div class="background-overlay__overlay">
+               <h1 class="title text-center">A Song of Ice and Fire</h1>
+               <h2 class="subtitle text-center">Fanpage</h2>
             </div>
-         </div>
-      </section>
-      <section
-         class="section-container"
-         >
-         <div id="" class="fill-width">
-            <img
-               src="res/banner.jpg"
-               alt="Background Banner"
-               class="banner img-overlayed"
+         </section>
+         <section class="section">
+            <article class="section__paragraph background-overlay">
+               <img
+                  class="background-overlay__image background-overlay--banner"
+                  src="res/banner.jpg"
+                  alt="Background Banner"
                />
-            <div class="text-overlay">
-               <h1 class="subtitle">Which house do you belong to?</h1>
-               <a href="https://www.gotoquiz.com/which_game_of_thrones_house_do_you_belong_to" class="header-large">Click here to find out!</a>
-            </div>
-         </div>
-      </section>
-      <section class="section-container fill-height">
-         <div id="home-block" class="flex-container-row fill-width">
-            <div id="home-posts">
-               <div id="home-welcome" class="light-border">
-                  <h1 class="header-large">🔥 Welcome to the Realm of Ice and Fire! 🔥</h1>
-                  <p class="text-justify">Step into the world of "A Song of Ice and Fire" and "Game of Thrones" with us! Dive into the depths of Westeros and Essos as we explore the intricate web of politics, power, and magic that has enraptured fans worldwide. Join our community to discuss beloved characters, unravel mysteries, and indulge in the timeless saga that continues to ignite our imaginations. Winter may be coming, but here, the flames of our passion for this epic tale shall never be extinguished. Welcome to our kingdom!</p>
+               <div class="background-overlay__overlay">
+                  <h1 class="subtitle text-center">
+                     Which house do you belong to?
+                  </h1>
+                  <a
+                     class="header-large text-center"
+                     href="https://www.gotoquiz.com/which_game_of_thrones_house_do_you_belong_to"
+                     >Click here to find out!</a
+                  >
                </div>
-               <div id="latest-posts" class="">
-                  <div class="blog-post-short light-border">
-                     <div>
-                        <h1 class="header-medium">Exciting Updates from Westeros: Latest News on the Song of Ice and Fire Series</h1>
-                        <div class="fill-width">
-                           <p class="date-time">Posted on February 22, 2024 by AryaStarkFan</p>
+            </article>
+            <section class="section__paragraph">
+               <div id="home-block" class="flex-container-row fill-width">
+                  <div id="home-posts">
+                     <div id="home-welcome" class="light-border">
+                        <h1 class="header-large text-center">
+                           🔥 Welcome to the Realm of Ice and Fire! 🔥
+                        </h1>
+                        <p class="text-justify">
+                           Step into the world of "A Song of Ice and Fire" and
+                           "Game of Thrones" with us! Dive into the depths of
+                           Westeros and Essos as we explore the intricate web of
+                           politics, power, and magic that has enraptured fans
+                           worldwide. Join our community to discuss beloved
+                           characters, unravel mysteries, and indulge in the
+                           timeless saga that continues to ignite our
+                           imaginations. Winter may be coming, but here, the
+                           flames of our passion for this epic tale shall never
+                           be extinguished. Welcome to our kingdom!
+                        </p>
+                     </div>
+                     <div id="latest-posts" class="">
+                        <div class="blog-post-short light-border">
+                           <div>
+                              <h1 class="header-medium text-center">
+                                 Exciting Updates from Westeros: Latest News on
+                                 the Song of Ice and Fire Series
+                              </h1>
+                              <div class="fill-width">
+                                 <p class="date-time text-center">
+                                    Posted on February 22, 2024 by AryaStarkFan
+                                 </p>
+                              </div>
+                           </div>
+                           <div>
+                              <p class="text-justify">
+                                 Winter has come, and with it, a flurry of
+                                 updates from the realm of George R.R. Martin's
+                                 epic fantasy series, A Song of Ice and Fire.
+                                 Here's a roundup of the latest news:
+                              </p>
+                              <p class="text-justify">
+                                 First off, fans eagerly await the release of
+                                 the next installment, "The Winds of Winter."
+                                 Rumors abound about its imminent publication,
+                                 but as always, we'll believe it when we see it.
+                              </p>
+                              <p class="text-justify">
+                                 In TV adaptation news, whispers of a potential
+                                 prequel series have been making rounds. Could
+                                 we soon be delving deeper into the history of
+                                 Westeros? Only time will tell.
+                              </p>
+                              <p class="text-center no-margin">
+                                 <a href="#">Read More</a>
+                              </p>
+                           </div>
                         </div>
-                     </div>
-                     <div>
-                        <p class="text-justify">Winter has come, and with it, a flurry of updates from the realm of George R.R. Martin's epic fantasy series, A Song of Ice and Fire. Here's a roundup of the latest news:</p>
-                        <p class="text-justify">First off, fans eagerly await the release of the next installment, "The Winds of Winter." Rumors abound about its imminent publication, but as always, we'll believe it when we see it.</p>
-                        <p class="text-justify">In TV adaptation news, whispers of a potential prequel series have been making rounds. Could we soon be delving deeper into the history of Westeros? Only time will tell.</p>
-                        <a href="#">Read More</a>
-                     </div>
-                  </div>
-                  <div class="blog-post-short light-border">
-                     <div>
-                        <h1 class="header-medium">Speculations and Theories: What's Next for the Song of Ice and Fire Universe?</h1>
-                        <div class="fill-width">
-                           <p class="date-time">Posted on February 22, 2024 by MaesterInsights</p>
+                        <div class="blog-post-short light-border">
+                           <div>
+                              <h1 class="header-medium text-center">
+                                 Speculations and Theories: What's Next for the
+                                 Song of Ice and Fire Universe?
+                              </h1>
+                              <div class="fill-width">
+                                 <p class="date-time text-center">
+                                    Posted on February 22, 2024 by
+                                    MaesterInsights
+                                 </p>
+                              </div>
+                           </div>
+                           <div>
+                              <p class="text-justify">
+                                 As the wait for "The Winds of Winter"
+                                 continues, fans have been busy concocting
+                                 theories and speculations about the fate of
+                                 their favorite characters.
+                              </p>
+                              <p class="text-justify">
+                                 Will Jon Snow finally learn the truth of his
+                                 parentage? Is Daenerys destined for glory or
+                                 tragedy? And what about the enigmatic
+                                 prophecies surrounding Azor Ahai?
+                              </p>
+                              <p class="text-justify">
+                                 Join us as we dive deep into the intricacies of
+                                 George R.R. Martin's world and explore the
+                                 myriad possibilities that lie ahead.
+                              </p>
+                              <p class="text-center no-margin">
+                                 <a href="#">Read More</a>
+                              </p>
+                           </div>
                         </div>
-                     </div>
-                     <div>
-                        <p class="text-justify">As the wait for "The Winds of Winter" continues, fans have been busy concocting theories and speculations about the fate of their favorite characters.</p>
-                        <p class="text-justify">Will Jon Snow finally learn the truth of his parentage? Is Daenerys destined for glory or tragedy? And what about the enigmatic prophecies surrounding Azor Ahai?</p>
-                        <p class="text-justify">Join us as we dive deep into the intricacies of George R.R. Martin's world and explore the myriad possibilities that lie ahead.</p>
-                        <a href="#">Read More</a>
-                     </div>
-                  </div>
-                  <div class="blog-post-short light-border">
-                     <div>
-                        <h1 class="header-medium">Behind the Scenes: Crafting the World of Ice and Fire</h1>
-                        <div class="fill-width">
-                           <p class="date-time">Posted on February 22, 2024 by WesterosiChronicler</p>
+                        <div class="blog-post-short light-border">
+                           <div>
+                              <h1 class="header-medium text-center">
+                                 Behind the Scenes: Crafting the World of Ice
+                                 and Fire
+                              </h1>
+                              <div class="fill-width">
+                                 <p class="date-time text-center">
+                                    Posted on February 22, 2024 by
+                                    WesterosiChronicler
+                                 </p>
+                              </div>
+                           </div>
+                           <div>
+                              <p class="text-justify">
+                                 Ever wondered what goes on behind the scenes in
+                                 the creation of the Song of Ice and Fire
+                                 series?
+                              </p>
+                              <p class="text-justify">
+                                 In this exclusive look, we explore the creative
+                                 process of George R.R. Martin, from his initial
+                                 inspirations to the meticulous world-building
+                                 that brings Westeros and Essos to life.
+                              </p>
+                              <p class="text-justify">
+                                 Discover the challenges and triumphs of
+                                 adapting the epic saga for television and gain
+                                 insight into the minds of the visionaries who
+                                 helped shape one of the most beloved fantasy
+                                 worlds of our time.
+                              </p>
+                              <p class="text-center no-margin">
+                                 <a href="#">Read More</a>
+                              </p>
+                           </div>
                         </div>
-                     </div>
-                     <div>
-                        <p class="text-justify">Ever wondered what goes on behind the scenes in the creation of the Song of Ice and Fire series?</p>
-                        <p class="text-justify">In this exclusive look, we explore the creative process of George R.R. Martin, from his initial inspirations to the meticulous world-building that brings Westeros and Essos to life.</p>
-                        <p class="text-justify">Discover the challenges and triumphs of adapting the epic saga for television and gain insight into the minds of the visionaries who helped shape one of the most beloved fantasy worlds of our time.</p>
-                        <a href="#">Read More</a>
-                     </div>
-                  </div>
 
-                  <div class=" light-border">
-                    <a href="#">Older Posts</a>
-                 </div>
+                        <div class="light-border">
+                           <p class="text-center no-margin">
+                              <a href="#">Older Posts</a>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div id="home-links" class="light-border text-center">
+                     <h1 class="header-small">Upcoming Activities</h1>
+                     <p><a href="#">Join the Night's Watch</a></p>
+                     <p><a href="#">Train with the Faceless Men</a></p>
+                     <p><a href="#">Explore the Citadel</a></p>
+                     <p><a href="#">Attend a Tourney in King's Landing</a></p>
+                     <h1 class="header-small">Latest News</h1>
+                     <p><a href="#">Rumors Swirl in the Red Keep</a></p>
+                     <p><a href="#">Dragons Spotted Beyond the Wall</a></p>
+                     <p>
+                        <a href="#">Winterfell Prepares for the Long Night</a>
+                     </p>
+                     <p>
+                        <a href="#"
+                           >A New Claimant to the Iron Throne Emerges</a
+                        >
+                     </p>
+                     <h1 class="header-small">Official Sites</h1>
+                     <p><a href="#">Maester's Archives</a></p>
+                     <p><a href="#">King's Landing Gazette</a></p>
+                     <p><a href="#">Wall Watchers' Reports</a></p>
+                     <p><a href="#">Iron Throne Bulletin</a></p>
+                     <h1 class="header-small">Featured Sites</h1>
+                     <p><a href="#">Valyrian Steel Armory</a></p>
+                     <p><a href="#">Free Cities Traders Guild</a></p>
+                     <p><a href="#">Beyond the Narrow Sea Travel Agency</a></p>
+                     <p><a href="#">Dragonstone Tavern</a></p>
+                  </div>
                </div>
-            </div>
-            <div id="home-links" class="light-border">
-               <h1 class="header-small">Upcoming Activities</h1>
-              <p><a href="#">Join the Night's Watch</a></p>
-              <p><a href="#">Train with the Faceless Men</a></p>
-              <p><a href="#">Explore the Citadel</a></p>
-              <p><a href="#">Attend a Tourney in King's Landing</a></p>
-              <h1 class="header-small">Latest News</h1>
-              <p><a href="#">Rumors Swirl in the Red Keep</a></p>
-              <p><a href="#">Dragons Spotted Beyond the Wall</a></p>
-              <p><a href="#">Winterfell Prepares for the Long Night</a></p>
-              <p><a href="#">A New Claimant to the Iron Throne Emerges</a></p>
-              <h1 class="header-small">Official Sites</h1>
-              <p><a href="#">Maester's Archives</a></p>
-              <p><a href="#">King's Landing Gazette</a></p>
-              <p><a href="#">Wall Watchers' Reports</a></p>
-              <p><a href="#">Iron Throne Bulletin</a></p>
-              <h1 class="header-small">Featured Sites</h1>
-              <p><a href="#">Valyrian Steel Armory</a></p>
-              <p><a href="#">Free Cities Traders Guild</a></p>
-              <p><a href="#">Beyond the Narrow Sea Travel Agency</a></p>
-              <p><a href="#">Dragonstone Tavern</a></p>
-          </div>
-                  
-         </div>
-      </section>
-      <footer class="alt-section">
-         <h5>&copy; 2024 All rights reserved.</h5>
+            </section>
+         </section>
+      </main>
+      <footer class="body__footer section--alt">
+         <span>&copy; 2024 All rights reserved.</span>
       </footer>
    </body>
 </html>
