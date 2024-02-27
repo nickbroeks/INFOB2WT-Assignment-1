@@ -29,9 +29,14 @@ img {
    -o-object-fit: cover;
    object-fit: cover;
 }
+
 a {
    text-decoration: none;
    color: var(--accent-bg-color);
+}
+
+.list-item--no-bullets {
+   list-style: none;
 }
 
 /* -------------------------------------------------------------- # Layout--------------------------------------------------------------*/
@@ -175,6 +180,31 @@ html .hidden {
 }
 
 /*-------------------------------------------------------------- # Basic Shapes Section Start--------------------------------------------------------------*/
+.container,
+.section-container,
+.section-container--desk-wide {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+}
+
+.section-container,
+.section-container--desk-wide {
+	padding: 2vh 5vw;
+}
+
+.section__paragraph {
+   width: 90%;
+   margin: min(4vh, 1rem) 0;
+}
+@media (min-width: 1200px) {
+	.section-container--narrow {
+		padding: 2vh 30vw;
+	}
+}
+
 
 .section {
    display: flex;
