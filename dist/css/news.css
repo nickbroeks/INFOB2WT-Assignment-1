@@ -1,6 +1,7 @@
 @import "output.css";
 
 #news-block {
+	padding-top: min(16vh, 4rem);
 	align-items: normal
 }
 
@@ -24,6 +25,14 @@
 	text-align: justify;
 }
 
-#news-block .comments-section .comment .comment-meta {
-
-}
+#news-links ul {
+	padding: 0;
+ 
+ }
+ 
+ #news-links li {
+	font-size: min(3vw, 1rem);
+	margin-top: min(4vh, 1rem);
+	margin-bottom: min(2vh, 0.5rem);
+ }
+ 
