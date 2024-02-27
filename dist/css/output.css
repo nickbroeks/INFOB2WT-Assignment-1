@@ -195,16 +195,17 @@ html .hidden {
 	padding: 2vh 5vw;
 }
 
-.section__paragraph {
-   width: 90%;
-   margin: min(4vh, 1rem) 0;
+@media (min-width: 1200px) {
+	.section-container {
+		padding: 2vh 20vw;
+	}
 }
+
 @media (min-width: 1200px) {
 	.section-container--narrow {
 		padding: 2vh 30vw;
 	}
 }
-
 
 .section {
    display: flex;
