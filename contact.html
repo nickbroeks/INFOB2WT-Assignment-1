@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Song of Ice and Fire | Fanpage</title>
+    <link
+      href="https://fonts.cdnfonts.com/css/sf-pro-display"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="dist/css/contact.css" />
+    <script src="dist/src/ts/nav.js"></script>
+  </head>
+
+  <body class="body">
+    <nav id="js-nav-bar" class="body__nav nav-bar js-nav-bar--transparent">
+      <div class="nav-bar__block">
+        <a class="nav-bar__link" href="index.html">Home</a>
+        <a class="nav-bar__link" href="News.html">News</a>
+      </div>
+      <div class="nav-bar__block">
+        <a class="nav-bar__link nav-bar__link--titel" href="index.html"
+          >ASOIAF</a
+        >
+      </div>
+      <div class="nav-bar__block">
+        <a class="nav-bar__link" href="summary.html">Book Summary</a>
+        <a class="nav-bar__link" href="stats.html">Stats</a>
+        <a class="nav-bar__link" href="contact.html">Contact</a>
+      </div>
+    </nav>
+    <main class="body__content body__content--padding-bottom">
+      <section class="section section--fill-height background-overlay">
+        <img
+          class="background-overlay__image"
+          src="res/a-song-of-ice-and-fire-tp.jpg"
+        />
+        <div
+          class="section__paragraph background-overlay__overlay background-overlay__overlay--block text-center"
+        >
+          <h1 class="title">Contact us</h1>
+          <p>
+            Got a question or suggestion for an article? We'd love to hear from
+            you! Send us a message and we'll respond as soon as possible
+          </p>
+          <form action="" class="form">
+            <label for="name">Name:</label>
+            <input
+              class="form__input"
+              type="text"
+              id="name"
+              name="name"
+              required
+            />
+            <label for="email">Email:</label>
+            <input
+              class="form__input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+            <label for="message">Message:</label>
+            <textarea
+              class="form__input"
+              id="message"
+              name="message"
+              required
+              style="resize: none"
+            ></textarea>
+            <button class="btn-accent" type="submit">Submit</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="body__footer section--alt">
+      <span>&copy; 2024 All rights reserved.</span>
+    </footer>
+  </body>
+</html>

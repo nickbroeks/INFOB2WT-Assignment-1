@@ -323,8 +323,8 @@ html .hidden {
 .background-overlay__overlay,
 .background-overlay__overlay * {
   text-transform: uppercase;
-  background: transparent !important;
-  font-family: 'Gobold Thin', sans-serif !important;
+  background: transparent;
+  font-family: 'Gobold Thin', sans-serif;
   color: var(--main-bg-color);
 }
 
@@ -337,7 +337,15 @@ html .hidden {
   display: flex;
   flex-direction: column;
 }
-
+.background-overlay__overlay--block,
+.background-overlay__overlay--block * {
+  background: var(--accent-bg-color);
+  color: var(--main-bg-color);
+  padding: min(4vh, 1rem) min(3vw, 1rem);
+}
+.background-overlay__overlay--block {
+  width: 60%;
+}
 /*-------------------------------------------------------------- # Input & Buttons Section Start--------------------------------------------------------------*/
 
 .options-container {
