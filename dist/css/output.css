@@ -12,7 +12,7 @@
 }
 
 html * {
-   font-family: 'SF Pro Display', sans-serif !important;
+   font-family: 'SF Pro Display', sans-serif;
    background: var(--main-bg-color);
    color: var(--accent-bg-color);
 }
