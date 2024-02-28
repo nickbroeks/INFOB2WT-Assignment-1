@@ -63,14 +63,12 @@ a {
 .body__content--padding-bottom {
    padding-bottom: 30px;
 }
+
 .body__footer {
-   z-index: 2;
-   position: fixed;
-   bottom: 0;
-   width: 100vw;
-   height: 30px;
-   padding: 5px;
-   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 5vh;
 }
 
 /*-------------------------------------------------------------- # Basic Text Section Start--------------------------------------------------------------*/
@@ -334,6 +332,7 @@ html .hidden {
   background: transparent;
   font-family: 'Gobold Thin', sans-serif;
   color: var(--main-bg-color);
+  text-shadow: 1px 1px 2px var(--accent-bg-color);
 }
 
 .background-overlay__overlay {
@@ -627,6 +626,7 @@ html .hidden {
    background-color: var(--main-bg-color);
    color: var(--accent-bg-color);
 }
+
 
 /* -------------------------------------------------------------- # General helper classes --------------------------------------------------------------*/
 

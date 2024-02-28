@@ -5,6 +5,18 @@
   background-color: var(--accent-bg-color);
 }
 
+#summary-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#summary-block p{
+  color: rgb(254, 231, 231);
+	font-size: min(4.5vw, 1.5rem);
+}
+
 .summary-text,
 .character__description {
   font-family: 'Lucida Handwriting std', Serif !important;
