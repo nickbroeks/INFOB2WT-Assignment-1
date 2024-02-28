@@ -1,0 +1,29 @@
+@import "output.css";
+
+#news-block {
+	align-items: normal
+}
+
+.news-post {
+	flex: 6
+}
+
+#news-links {
+	flex: 2;
+}
+
+#latest-posts .date-time,
+#news-links .header-small {
+	background-color: var(--alt-bg-color);
+	margin: min(4vh, 1rem) 0;
+	padding: min(2vh, 0.5rem) min(1.5vw, 0.5rem);
+	border-top: min(1vh, 0.25rem) solid var(--accent-bg-color);
+}
+
+#news-block .comments-section .comment * {
+	text-align: justify;
+}
+
+#news-block .comments-section .comment .comment-meta {
+
+}
