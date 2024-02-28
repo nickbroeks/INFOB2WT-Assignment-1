@@ -420,10 +420,6 @@ html .hidden {
    background-color: var(--main-bg-color);
    z-index: 100;
  }
- 
- .nav * {
-    
- }
 
  .nav,
  .nav__menu {
@@ -633,4 +629,4 @@ html .hidden {
 .no-margin {
    margin: 0 !important;
 }
- }
+
