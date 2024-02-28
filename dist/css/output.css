@@ -63,10 +63,6 @@ a {
    margin-top: 60px !important;
 }
 
-.body__content--padding-bottom {
-   padding-bottom: 30px;
-}
-
 .body__footer {
    display: flex;
    justify-content: center;
@@ -87,6 +83,8 @@ a {
    font-size: min(9vw, 3rem);
    margin-top: min(8vh, 2rem);
    margin-bottom: min(6vh, 1.5rem);
+   margin-left: 20px;
+   margin-right: 20px;
    font-weight: 1000;
 }
 
@@ -133,6 +131,21 @@ p,
 
 .text-justify {
    text-align: justify;
+}
+
+@media screen and (min-width: 1200px) {
+   .md-text-left {
+      text-align: left;
+   }
+
+   .md-text-center {
+      text-align: center;
+   }
+
+   .md-text-right {
+      text-align: right;
+   }
+
 }
 
 .text-color--secondary {
@@ -274,9 +287,17 @@ html .hidden {
 
 .multi-column {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: space-around;
+   align-items: center;
    gap: 4%;
+}
+
+@media screen and (min-width: 1200px) {
+   .multi-column {
+      flex-direction: row;
+   }
+
 }
 
 /*-------------------------------------------------------------- # Grids & Flex Section Start--------------------------------------------------------------*/
