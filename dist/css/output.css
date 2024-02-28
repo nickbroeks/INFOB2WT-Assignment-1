@@ -402,6 +402,10 @@ html .hidden {
    z-index: 100;
  }
  
+ .nav * {
+    
+ }
+
  .nav,
  .nav__menu {
    padding: min(4vh, 1rem) 15vw;
@@ -416,7 +420,7 @@ html .hidden {
  .nav__logo i,
  .nav__burger, 
  .nav__close  {
-   font-size: min(4vw, 1.33rem);
+   font-size: min(3vw, 1rem);
  }
 
  .nav__logo,
@@ -432,6 +436,9 @@ html .hidden {
    display: inline-flex;
    align-items: center;
    font-weight: var(--font-semi-bold);
+   font-family: 'Gobold Thin', sans-serif !important;
+   font-size: min(4vw, 1.33rem);
+   letter-spacing: min(0.6vw, 0.2rem);
  }
  
  .nav__logo i {
