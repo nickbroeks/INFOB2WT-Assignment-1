@@ -198,9 +198,9 @@ html .hidden {
 }
 
 @media (min-width: 1200px) {
-	.section-container {
-		padding: 2vh 20vw;
-	}
+  .section-container {
+    padding: 2vh 20vw;
+  }
 }
 
 @media (min-width: 1200px) {

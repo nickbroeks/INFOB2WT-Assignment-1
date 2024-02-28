@@ -1,25 +1,12 @@
-@import "output.css";
+@import 'output.css';
 
-h1{
+h1 {
   color: rgb(254, 231, 231) !important;
   font-size: min(12vw, 4rem);
-	margin-top: min(12vh, 3rem);
-	margin-bottom: min(8vh, 2rem);
-	font-weight: 1200;
+  margin-top: min(12vh, 3rem);
+  margin-bottom: min(8vh, 2rem);
+  font-weight: 1200;
 }
-
-#summary-block{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-#summary-block p{
-  color: rgb(254, 231, 231);
-	font-size: min(4.5vw, 1.5rem);
-}
-
 #character-block {
   display: flex;
   align-items: left;
@@ -29,13 +16,13 @@ h1{
 .character-des {
   display: flex;
   flex-direction: row;
-  flex:2;
+  flex: 2;
   padding-bottom: 4vh;
 }
 
-.character-des p{
+.character-des p {
   align-items: top;
-  font-family: "Lucida Handwriting std", Serif  !important;
+  font-family: 'Lucida Handwriting std', Serif !important;
   color: rgb(254, 231, 231);
   font-size: 1.5rem;
   line-height: 1.5;
@@ -51,14 +38,14 @@ h1{
   align-items: center;
 }
 
-.character-photo img{
+.character-photo img {
   width: 175px;
   height: 400px;
   border: 3px solid rgb(254, 231, 231);
 }
 
 .character-name {
-  font-family: "Lucida Handwriting std", Serif  !important;
+  font-family: 'Lucida Handwriting std', Serif !important;
   color: rgb(254, 231, 231);
   font-size: 1.8rem;
   text-align: center;
