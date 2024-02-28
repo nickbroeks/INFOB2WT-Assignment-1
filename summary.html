@@ -16,29 +16,33 @@
   </head>
 
   <body id="summary">
-    <nav id="nav-bar" class="">
-      <div class="middle-section">
-         <a href="index.html">Home</a>
-         <a href="News.html">News</a>
-      </div>
-      <div id="nav-middle-section" class="middle-section">
-         <a
-            href="index.html"
-            style="
-            font-family: 'Gobold Thin', sans-serif !important;
-            font-size: min(4vw, 1.33rem);
-            letter-spacing: min(0.6vw, 0.2rem);
-            "
-            >ASOIAF</a
-            >
-      </div>
-      <div id="nav-right-section" class="middle-section">
-        <a href="summary.html">Book Summary</a>
-         <a href="stats.html">Stats</a>
-         <a href="contact.html">Contact</a>
-      </div>
-   </nav>
+    <header id="js-nav-bar" class="header js-nav-bar--transparent">
+      <nav class="nav">
+         <div class="flex-container nav__data">
+            <a href="index.html" class="nav__logo">
+               A Song of Ice and Fire
+            </a>
+            
+            <div class="nav__toggle" id="nav-toggle" onclick="showMenu('nav-toggle', 'nav-menu')">
+               <i class="ri-menu-line nav__burger"></i>
+               <i class="ri-close-line nav__close"></i>
+            </div>
+         </div>
 
+         <!--=============== NAV MENU ===============-->
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li><a class="nav__link flex-container" href="news.html">News</a></li>
+               <li><a class="nav__link flex-container" href="summary.html">Summary</a></li>
+               <li><a class="nav__link flex-container" href="stats.html">Stats</a></li>
+               <li><a class="nav__link flex-container" href="contact.html">Contact</a></li>
+               
+               
+               
+            </ul>
+         </div>
+      </nav>
+   </header>
     <section class="accent-section section-container fill-height text-top">
       <div id=summary-block>
         <h1>Summary</h1>

@@ -1,5 +1,13 @@
 @import "output.css";
 
+@media screen and (min-width: 1200px) {
+	.js-nav-bar--transparent,
+	.js-nav-bar--transparent * {
+	color: var(--accent-bg-color) !important;
+	text-shadow: none;
+	}
+ }
+
 #news-block {
 	padding-top: min(16vh, 4rem);
 	align-items: normal
