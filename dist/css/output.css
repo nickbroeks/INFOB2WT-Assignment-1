@@ -73,7 +73,7 @@ a {
    font-size: min(12vw, 4rem);
    margin-top: min(12vh, 3rem);
    margin-bottom: min(8vh, 2rem);
-   font-weight: 1200;
+   font-weight: 1000;
 }
 
 .subtitle {
@@ -349,8 +349,8 @@ html .hidden {
 
 .options-container label {
    display: block;
-   margin-top: min(8vh, 2rem) min(6vw, 2rem);
-   font-size: min(4vh, 1rem) min(3vw, 1rem);
+   margin-top: min(8vh, 2rem);
+   font-size: min(4vh, 1rem);
    font-weight: 600;
 }
 
