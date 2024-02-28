@@ -347,7 +347,6 @@ html .hidden {
 }
 .background-overlay__overlay--block,
 .background-overlay__overlay--block * {
-  background: var(--accent-bg-color);
   color: var(--main-bg-color);
   padding: min(4vh, 1rem) min(3vw, 1rem);
 }
