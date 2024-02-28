@@ -1,54 +1,47 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>A Song of Ice and Fire | Fanpage</title>
-    <link
-      href="https://fonts.cdnfonts.com/css/sf-pro-display"
-      rel="stylesheet"
-    />
-    <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="dist/css/contact.css" />
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
-    <script src="dist/src/ts/nav.js"></script>
-  </head>
 
-  <body class="body">
-    <header id="js-nav-bar" class="header js-nav-bar--transparent">
-      <nav class="nav">
-         <div class="flex-container nav__data">
-            <a href="index.html" class="nav__logo">
-               A Song of Ice and Fire
-            </a>
-            
-            <div class="nav__toggle" id="nav-toggle" onclick="showMenu('nav-toggle', 'nav-menu')">
-               <i class="ri-menu-line nav__burger"></i>
-               <i class="ri-close-line nav__close"></i>
-            </div>
-         </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Song of Ice and Fire | Fanpage</title>
+  <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+  <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="dist/css/contact.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="dist/src/ts/nav.js"></script>
+</head>
 
-         <!--=============== NAV MENU ===============-->
-         <div class="nav__menu" id="nav-menu">
-            <ul class="nav__list">
-               <li><a class="nav__link flex-container" href="news.html">News</a></li>
-               <li><a class="nav__link flex-container" href="summary.html">Summary</a></li>
-               <li><a class="nav__link flex-container" href="stats.html">Stats</a></li>
-               <li><a class="nav__link flex-container" href="contact.html">Contact</a></li>
-            </ul>
-         </div>
-      </nav>
-   </header>
-   <main class="body__content body__content--padding-bottom">
+<body class="body">
+  <header id="js-nav-bar" class="header js-nav-bar--transparent">
+    <nav class="nav">
+      <div class="flex-container nav__data">
+        <a href="index.html" class="nav__logo">
+          A Song of Ice and Fire
+        </a>
+
+        <div class="nav__toggle" id="nav-toggle" onclick="showMenu('nav-toggle', 'nav-menu')">
+          <i class="ri-menu-line nav__burger"></i>
+          <i class="ri-close-line nav__close"></i>
+        </div>
+      </div>
+
+      <!--=============== NAV MENU ===============-->
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li><a class="nav__link flex-container" href="news.html">News</a></li>
+          <li><a class="nav__link flex-container" href="summary.html">Summary</a></li>
+          <li><a class="nav__link flex-container" href="stats.html">Stats</a></li>
+          <li><a class="nav__link flex-container" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <main class="body__content body__content--padding-bottom">
     <section class="section section--fill-height background-overlay">
-      <img
-        class="background-overlay__image"
-        alt="Background Banner"
-        src="res/a-song-of-ice-and-fire-tp.jpg"
-      />
+      <img class="background-overlay__image" alt="Background Banner" src="res/a-song-of-ice-and-fire-tp.jpg" />
       <div
-        class="section__paragraph background-overlay__overlay background-overlay__overlay--block text-center section--header-margin"
-      >
+        class="section__paragraph background-overlay__overlay background-overlay__overlay--block text-center section--header-margin">
         <h1 class="title no-margin">Contact us</h1>
         <p class="no-margin">
           Got a question or suggestion for an article? We'd love to hear from
@@ -56,29 +49,11 @@
         </p>
         <form class="form">
           <label for="name">Name:</label>
-          <input
-            class="form__input"
-            type="text"
-            id="name"
-            name="name"
-            required
-          />
+          <input class="form__input" type="text" id="name" name="name" required />
           <label for="email">Email:</label>
-          <input
-            class="form__input"
-            type="email"
-            id="email"
-            name="email"
-            required
-          />
+          <input class="form__input" type="email" id="email" name="email" required />
           <label for="message">Message:</label>
-          <textarea
-            class="form__input"
-            id="message"
-            name="message"
-            required
-            style="resize: none"
-          ></textarea>
+          <textarea class="form__input" id="message" name="message" required style="resize: none"></textarea>
           <button class="btn-medium btn-accent" type="submit">Submit</button>
         </form>
       </div>
@@ -88,4 +63,5 @@
     <span>&copy; 2024 All rights reserved.</span>
   </footer>
 </body>
+
 </html>

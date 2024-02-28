@@ -1,12 +1,13 @@
 @import "output.css";
 
 @media screen and (min-width: 1200px) {
+
 	.js-nav-bar--transparent,
 	.js-nav-bar--transparent * {
-	color: var(--accent-bg-color) !important;
-	text-shadow: none;
+		color: var(--accent-bg-color) !important;
+		text-shadow: none;
 	}
- }
+}
 
 #news-block {
 	padding-top: min(16vh, 4rem);
@@ -35,12 +36,11 @@
 
 #news-links ul {
 	padding: 0;
- 
- }
- 
+
+}
+
 #news-links li {
 	font-size: min(3vw, 1rem);
 	margin-top: min(4vh, 1rem);
 	margin-bottom: min(2vh, 0.5rem);
 }
- 

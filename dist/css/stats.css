@@ -20,54 +20,70 @@ body {
 .table--alt {
    padding: 10px 0;
 }
+
 .table--alt td:first-child {
    padding-left: 25px;
 }
+
 .table--alt td:last-child {
    padding-right: 25px;
 }
+
 .table--alt,
 .table--alt * {
    background-color: var(--main-bg-color);
    color: var(--accent-bg-color);
 }
+
 .table--alt tr:nth-child(even) * {
    background-color: var(--alt-bg-color);
 }
+
 /* ------Sizes------ */
 .w-1 {
    width: calc(100% / 12);
 }
+
 .w-2 {
    width: calc(100% / 6);
 }
+
 .w-3 {
    width: calc(100% / 4);
 }
+
 .w-4 {
    width: calc(100% / 3);
 }
+
 .w-5 {
    width: calc(100% * 5 / 12);
 }
+
 .w-6 {
    width: calc(100% / 2);
 }
+
 .w-7 {
    width: calc(100% * 7 / 12);
 }
+
 .w-8 {
    width: calc(100% * 2 / 3);
 }
+
 .w-9 {
    width: calc(100% * 3 / 4);
 }
+
 .w-10 {
    width: calc(100% * 5 / 6);
 }
+
 .w-11 {
    width: calc(100% * 11 / 12);
 }
+
 .w-12 {
    width: 100%;
 }

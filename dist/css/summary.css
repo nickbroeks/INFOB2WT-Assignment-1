@@ -1,20 +1,20 @@
 @import 'output.css';
 
- #summary-block {
-	padding-top: min(16vh, 4rem);
+#summary-block {
+  padding-top: min(16vh, 4rem);
   background-color: var(--accent-bg-color);
 }
 
-#summary-block{
+#summary-block {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#summary-block p{
+#summary-block p {
   color: rgb(254, 231, 231);
-	font-size: min(4.5vw, 1.5rem);
+  font-size: min(4.5vw, 1.5rem);
 }
 
 .summary-text,
@@ -31,12 +31,14 @@
   padding-bottom: 4vh;
   gap: 5vw;
 }
+
 @media screen and (max-width: 1200px) {
   .character__description {
     flex-direction: column;
     align-items: center;
   }
 }
+
 .character__description--text {
   font-family: 'Lucida Handwriting std', Serif !important;
   color: var(--secondary-bg-color);
@@ -51,6 +53,7 @@
     width: 100%;
   }
 }
+
 .character__named-photo {
   display: flex;
   flex-direction: column;
