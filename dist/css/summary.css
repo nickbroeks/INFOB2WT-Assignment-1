@@ -1,9 +1,9 @@
 @import 'output.css';
 
-.summary--text,
+.summary-text,
 .character__description {
   font-family: 'Lucida Handwriting std', Serif !important;
-  color:  var(--secondary-bg-color);
+  color: var(--secondary-bg-color);
   font-size: 1.5rem;
   line-height: 1.5;
 }
@@ -11,33 +11,45 @@
 .character__description {
   display: flex;
   flex-direction: row;
-  flex: 2;
   padding-bottom: 4vh;
+  gap: 5vw;
 }
-
+@media screen and (max-width: 1200px) {
+  .character__description {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 .character__description--text {
   font-family: 'Lucida Handwriting std', Serif !important;
-  color:  var(--secondary-bg-color);
+  color: var(--secondary-bg-color);
   font-size: 1.5rem;
   line-height: 1.5;
+  width: 70%;
+  flex-grow: 0;
 }
 
+@media screen and (max-width: 1200px) {
+  .character__description--text {
+    width: 100%;
+  }
+}
 .character__named-photo {
   display: flex;
   flex-direction: column;
-  padding-right: 5vw;
   align-items: center;
+  width: 300px;
+  flex-grow: 0;
 }
 
 .character__photo {
-  width: 20vw;
-  height: 80vh;
-  border: 3px solid  var(--secondary-bg-color);
+  width: 100%;
+  border: 3px solid var(--secondary-bg-color);
 }
 
 .character__name {
   font-family: 'Lucida Handwriting std', Serif !important;
-  color:  var(--secondary-bg-color);
+  color: var(--secondary-bg-color);
   font-size: 1.8rem;
   text-align: center;
   padding-top: 3vh;
