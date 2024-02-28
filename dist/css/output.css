@@ -57,6 +57,9 @@ a {
 .body__content--padding-top {
    padding-top: 60px;
 }
+.section--header-margin {
+  margin-top: 60px !important;
+}
 .body__content--padding-bottom {
    padding-bottom: 30px;
 }
@@ -132,7 +135,7 @@ p,
 }
 
 .text-color--secondary {
-	color: var(--secondary-bg-color) !important;
+  color: var(--secondary-bg-color) !important;
 }
 /*-------------------------------------------------------------- # Basic Modifiers Section Start--------------------------------------------------------------*/
 
@@ -349,7 +352,13 @@ html .hidden {
   padding: min(4vh, 1rem) min(3vw, 1rem);
 }
 .background-overlay__overlay--block {
-  width: 60%;
+  width: 90%;
+}
+
+@media screen and (min-width: 1200px) {
+  .background-overlay__overlay--block {
+    width: 60%;
+  }
 }
 /*-------------------------------------------------------------- # Input & Buttons Section Start--------------------------------------------------------------*/
 
