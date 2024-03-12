@@ -467,16 +467,15 @@ html .hidden {
     list-style: none;
 }
 
-.nav li,
+.nav__link,
 .nav__logo,
-.nav__logo i,
 .nav__burger,
 .nav__close {
     font-size: min(3vw, 1rem);
 }
 
 .nav__logo,
-.nav li a {
+.nav__link {
     height: min(8vh, 2rem);
 }
 
@@ -492,10 +491,6 @@ html .hidden {
     font-family: 'Gobold Thin', sans-serif !important;
     font-size: min(4vw, 1.33rem);
     letter-spacing: min(0.6vw, 0.2rem);
-}
-
-.nav__logo i {
-    margin-right: min(3vw, 1rem);
 }
 
 .nav__toggle {
@@ -555,13 +550,16 @@ html .hidden {
         margin: min(6vh, 1.5rem) 10vw;
     }
 
+    .body__content--padding-top {
+        padding-top: calc(32px + 2 * min(6vh, 1.5rem));
+    }
+
     .nav li {
         margin: min(6vw, 2rem) 0;
     }
 
     .nav li,
     .nav__logo,
-    .nav__logo i,
     .nav__burger,
     .nav__close {
         font-size: min(6vw, 2rem);
@@ -571,9 +569,6 @@ html .hidden {
         box-shadow: 0 0 4px #ddd;
         border: 1px solid #ddd;
         padding: min(1vh, 0.5rem) min(3vw, 1rem);
-    }
-
-    .nav li a {
         height: min(12vh, 3rem);
     }
 }
@@ -664,4 +659,53 @@ html .hidden {
 
 .no-margin {
     margin: 0 !important;
+}
+
+/* ------Sizes------ */
+.w-1 {
+    width: calc(100% / 12);
+}
+
+.w-2 {
+    width: calc(100% / 6);
+}
+
+.w-3 {
+    width: calc(100% / 4);
+}
+
+.w-4 {
+    width: calc(100% / 3);
+}
+
+.w-5 {
+    width: calc(100% * 5 / 12);
+}
+
+.w-6 {
+    width: calc(100% / 2);
+}
+
+.w-7 {
+    width: calc(100% * 7 / 12);
+}
+
+.w-8 {
+    width: calc(100% * 2 / 3);
+}
+
+.w-9 {
+    width: calc(100% * 3 / 4);
+}
+
+.w-10 {
+    width: calc(100% * 5 / 6);
+}
+
+.w-11 {
+    width: calc(100% * 11 / 12);
+}
+
+.w-12 {
+    width: 100%;
 }

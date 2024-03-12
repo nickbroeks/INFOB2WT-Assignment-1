@@ -20,3 +20,7 @@ const showMenu = (toggleId, navId) => {
     nav.classList.toggle('show-menu');
     toggle.classList.toggle('show-icon');
 };
+
+document.getElementById('js-nav-toggle').addEventListener('click', () => {
+    showMenu('js-nav-toggle', 'js-nav-menu');
+});
