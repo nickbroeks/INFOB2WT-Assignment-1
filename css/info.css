@@ -1,0 +1,39 @@
+@import 'output.css';
+
+.book-section {
+    display: flex;
+    flex-direction: column;
+    padding: 80px 5px 0;
+}
+
+.book-section__info {
+    text-align: center;
+    padding: 0 20px 5px;
+    width: 100%;
+}
+
+.book-section__cover {
+    margin: auto;
+    align-self: center;
+    width: 60%;
+}
+
+@media screen and (min-width: 768px) {
+    .book-section {
+        flex-direction: row;
+    }
+
+    .book-section__info {
+        text-align: right;
+    }
+
+    .book-section__cover {
+        width: 30%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .book-section {
+        padding: 100px 15%;
+    }
+}
