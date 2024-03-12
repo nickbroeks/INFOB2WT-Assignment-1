@@ -1,25 +1,25 @@
 @import 'output.css';
 
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 0;
-  gap: min(4vh, 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+    gap: min(4vh, 1rem);
 }
 
 .form__input {
-  width: 80%;
-  margin: 2px 1vh;
-  border: 2px solid var(--main-bg-color);
-  background-color: var(--main-bg-color);
-  color: rgb(0, 0, 0);
-  font-size: 1.5rem;
-  font-family: 'Lucida Handwriting std', Serif !important;
+    width: 80%;
+    margin: 2px 1vh;
+    border: 2px solid var(--main-bg-color);
+    background-color: var(--main-bg-color);
+    color: rgb(0, 0, 0);
+    font-size: 1.5rem;
+    font-family: 'Lucida Handwriting std', Serif !important;
 }
 
 @media screen and (min-width: 1200px) {
-  .form__input {
-    width: 50%;
-  }
+    .form__input {
+        width: 50%;
+    }
 }

@@ -3,6 +3,8 @@
     "ritwickdey.liveserver",
     "formulahendry.auto-rename-tag",
     "ecmel.vscode-html-css",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "rvest.vs-code-prettier-eslint"
   ]
 }
