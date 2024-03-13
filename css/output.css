@@ -708,3 +708,42 @@ html .hidden {
 .w-12 {
     width: 100%;
 }
+
+/*-----------------Text size and Text Font Setting-------------------*/
+.textsize__small p {
+    font-size: 0.8em;
+}
+.textsize__medium p {
+    font-size: 1em;
+}
+.textsize__large p {
+    font-size: 1.2em;
+}
+.textsize__verylarge p {
+    font-size: 1.4em;
+}
+
+.textcolor__black * {
+    color: #000 !important;
+}
+.textcolor__white * {
+    color: #ffffff !important;
+}
+.textcolor__red * {
+    color: #ff0000 !important;
+}
+.textcolor__blue * {
+    color: #0000ff !important;
+}
+.textcolor__green * {
+    color: #008000 !important;
+}
+.textcolor__yellow * {
+    color: #ffff00 !important;
+}
+.textcolor__purple * {
+    color: #800080 !important;
+}
+.textcolor__orange * {
+    color: #ffa500 !important;
+}

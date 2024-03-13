@@ -33,6 +33,27 @@ function AddMenu() {
                     elements.push('section' + ' ' + sectioncount);
                     sectioncount++;
                 }
+                if (j.nodeName == 'MAIN') {
+                    for (let k of j.childNodes) {
+                        if (k.nodeName == 'HEADER') {
+                            elements.push('header');
+                        }
+                        if (k.nodeName == 'FOOTER') {
+                            elements.push('footer');
+                        }
+                        if (k.nodeName == 'ASIDE') {
+                            elements.push('aside');
+                        }
+                        if (k.nodeName == 'ARTICLE') {
+                            elements.push('article' + ' ' + articlecount);
+                            articlecount++;
+                        }
+                        if (k.nodeName == 'SECTION') {
+                            elements.push('section' + ' ' + sectioncount);
+                            sectioncount++;
+                        }
+                    }
+                }
             }
         }
     }
