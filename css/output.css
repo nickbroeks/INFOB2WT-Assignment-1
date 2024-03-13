@@ -235,7 +235,6 @@ html .hidden {
     flex-direction: column;
     align-items: center;
 }
-
 .section--accent,
 .section--accent * {
     background-color: var(--accent-bg-color);
