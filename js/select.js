@@ -1,10 +1,10 @@
 function AddMenu() {
-    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
     const selectElement = document.createElement('select');
     const selectElement2 = document.createElement('select');
     const selectElement3 = document.createElement('select');
 
-    header.appendChild(selectElement); // Initialize the Menu 1 in header
+    footer.appendChild(selectElement); // Initialize the Menu 1 in header
     selectElement.id = 'js-Menu__Select1';
     var elements = [];
     var articlecount = 1;
@@ -64,7 +64,7 @@ function AddMenu() {
         selectElement.add(Option);
     }
 
-    header.appendChild(selectElement2); // Initialize the Menu 2 (fontsize) in header
+    footer.appendChild(selectElement2); // Initialize the Menu 2 (fontsize) in header
     selectElement2.id = 'js-Menu__Select2';
     const size = ['small', 'medium', 'large', 'verylarge'];
     for (let i of size) {
@@ -73,7 +73,7 @@ function AddMenu() {
         selectElement2.add(Option);
     }
 
-    header.appendChild(selectElement3); // Initialize the Menu 3 (fontcolor) in header
+    footer.appendChild(selectElement3); // Initialize the Menu 3 (fontcolor) in header
     selectElement3.id = 'js-Menu__Select3';
     const colors = ['black', 'white', 'red', 'blue', 'green', 'yellow', 'purple', 'orange'];
     for (let i of colors) {
@@ -95,38 +95,34 @@ function AddMenu() {
             var number = element_selected.split(' ')[1];
             element_selected = element_selected.split(' ')[0];
             element_query = document.querySelectorAll(element_selected);
-            changefontcolor(element_query[number - 1], color_selected, colors);
-            changefontsize(element_query[number - 1], size_selected, size);
+            changefontcolor(element_query[number - 1], color_selected);
+            changefontsize(element_query[number - 1], size_selected);
         } else {
             element_query = document.querySelector(element_selected);
-            changefontcolor(element_query, color_selected, colors);
-            changefontsize(element_query, size_selected, size);
+            changefontcolor(element_query, color_selected);
+            changefontsize(element_query, size_selected);
         }
     });
 }
 
-function changefontcolor(target_node, color_selected, colors) {
+function changefontcolor(target_node, color_selected) {
     // A function to change the font color using class
     for (let i of target_node.classList) {
-        for (let j of colors) {
-            if (i.split('__')[1] == j) {
-                target_node.classList.remove(i);
-            }
+        if (i.split('--')[0] == 'font-color') {
+            target_node.classList.remove(i);
         }
     }
-    target_node.classList.add('textcolor' + '__' + color_selected);
+    target_node.classList.add('font-color' + '--' + color_selected);
 }
 
-function changefontsize(target_node, size_selected, size) {
+function changefontsize(target_node, size_selected) {
     // A function to change the text color using class
     for (let i of target_node.classList) {
-        for (let j of size) {
-            if (i.split('__')[1] == j) {
-                target_node.classList.remove(i);
-            }
+        if (i.split('--')[0] == 'font-size') {
+            target_node.classList.remove(i);
         }
     }
-    target_node.classList.add('textsize' + '__' + size_selected);
+    target_node.classList.add('font-size' + '--' + size_selected);
 }
 
 AddMenu();
