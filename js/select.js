@@ -4,7 +4,7 @@ function AddMenu() {
     const selectElement2 = document.createElement('select');
     const formElement = document.createElement('form');
 
-    header.appendChild(selectElement);  // Initialize the Menu 1 in header
+    header.appendChild(selectElement); // Initialize the Menu 1 in header
     selectElement.id = 'Menu__Select1';
     const elements = ['body', 'header', 'footer', 'aside', 'article', 'section'];
     for (let i of elements) {
@@ -22,20 +22,20 @@ function AddMenu() {
         selectElement2.add(Option);
     }
 
+    var element_selected = document.getElementById('Menu__Select1').value;
+    var color_selected = document.getElementById('Menu__Select2').value;
 
-    var element_selected = document.getElementById("Menu__Select1").value;
-    var color_selected = document.getElementById("Menu__Select2").value;
-    
-    selectElement.addEventListener('change', event => {
+    selectElement.addEventListener('change', (event) => {
         element_selected = event.target.value;
-        element_query = document.querySelectorAll(element_selected)
-        element_query.forEach((elementItem) => {elementItem.style.color = color_selected;});
-        
+        element_query = document.querySelectorAll(element_selected);
+        element_query.forEach((elementItem) => {
+            elementItem.style.color = color_selected;
+        });
     });
 
-    selectElement2.addEventListener('change', event => {
+    selectElement2.addEventListener('change', (event) => {
         color_selected = event.target.value;
-        console.log(element_selected+" "+color_selected);
+        console.log(element_selected + ' ' + color_selected);
     });
 }
 
