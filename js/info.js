@@ -180,4 +180,6 @@ function renderPage() {
     main.appendChild(bookSection);
 }
 
+
+
 renderPage();
