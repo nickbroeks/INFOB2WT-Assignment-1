@@ -11,30 +11,35 @@
     font-size: 1.4em;
 }
 
-.appearance__font-color--black * {
+.appearance__font-color--black
+    *:not(.appearance__font-color--black .appearance__font-color--:not(.appearance__font-color--black) *) {
     color: #000 !important;
 }
-.appearance__font-color--white * {
+.appearance__font-color--white
+    *:not(.appearance__font-color--white .appearance__font-color--:not(.appearance__font-color--white) *) {
     color: #fff !important;
 }
-.appearance__font-color--red * {
+.appearance__font-color--red
+    *:not(.appearance__font-color--red .appearance__font-color--:not(.appearance__font-color--red) *) {
     color: #ff0000 !important;
 }
-.appearance__font-color--blue * {
+.appearance__font-color--blue
+    *:not(.appearance__font-color--blue .appearance__font-color--:not(.appearance__font-color--blue) *) {
     color: #0000ff !important;
 }
-.appearance__font-color--green * {
+.appearance__font-color--green
+    *:not(.appearance__font-color--green .appearance__font-color--:not(.appearance__font-color--green) *) {
     color: #008000 !important;
 }
-.appearance__font-color--orange * {
+.appearance__font-color--orange
+    *:not(.appearance__font-color--orange .appearance__font-color--:not(.appearance__font-color--orange) *) {
     color: #ffa500 !important;
 }
-.appearance__font-color--purple * {
+.appearance__font-color--purple
+    *:not(.appearance__font-color--purple .appearance__font-color--:not(.appearance__font-color--purple) *) {
     color: #800080 !important;
 }
-.appearance__font-color--yellow * {
+.appearance__font-color--yellow
+    *:not(.appearance__font-color--yellow .appearance__font-color--:not(.appearance__font-color--yellow) *) {
     color: #ffff00 !important;
-}
-.appearance__font-color--secondary * {
-    color: var(--secondary-bg-color) !important;
 }

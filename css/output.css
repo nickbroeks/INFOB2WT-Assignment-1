@@ -720,30 +720,6 @@ html .hidden {
     font-size: 1.4em;
 }
 
-.font-color--black * {
-    color: #000 !important;
-}
-.font-color--white * {
-    color: #fff !important;
-}
-.font-color--red * {
-    color: #ff0000 !important;
-}
-.font-color--blue * {
-    color: #0000ff !important;
-}
-.font-color--green * {
-    color: #008000 !important;
-}
-.font-color--orange * {
-    color: #ffa500 !important;
-}
-.font-color--purple * {
-    color: #800080 !important;
-}
-.font-color--yellow * {
-    color: #ffff00 !important;
-}
 .font-color--secondary * {
     color: var(--secondary-bg-color) !important;
 }

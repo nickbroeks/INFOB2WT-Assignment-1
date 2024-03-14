@@ -104,9 +104,11 @@ function changeFontcolor() {
     console.log(old_color);
     if (old_color) {
         element.classList.remove(old_color);
+        element.classList.remove(PREFIX + PREFIX_FONT_COLOR);
     }
     if (selectedColor !== 'default') {
         element.classList.add(PREFIX + PREFIX_FONT_COLOR + selectedColor);
+        element.classList.add(PREFIX + PREFIX_FONT_COLOR);
     }
 }
 function changeFontsize() {
@@ -115,9 +117,11 @@ function changeFontsize() {
     const old_size = [...element.classList].find((c) => c.startsWith(PREFIX + PREFIX_FONT_SIZE));
     if (old_size) {
         element.classList.remove(old_size);
+        element.classList.remove(PREFIX + PREFIX_FONT_SIZE);
     }
     if (selectedSize !== 'default') {
         element.classList.add(PREFIX + PREFIX_FONT_SIZE + selectedSize);
+        element.classList.add(PREFIX + PREFIX_FONT_SIZE);
     }
 }
 renderMenus();
