@@ -355,15 +355,31 @@ function renderPublisherSection(book) {
     publisherTitle.classList.add('header-medium');
     publisherTitle.textContent = 'Publisher';
 
+    const publisherInfo = document.createElement('div');
+    publisherInfo.classList.add('publisher');
+
     const bookList = document.createElement('ul');
+    bookList.classList.add('publisher__books');
     book.publisher.publishedBooks.forEach((book) => {
         const bookItem = document.createElement('li');
+        bookItem.classList.add('text-large', 'list-item--no-bullets');
         bookItem.textContent = book;
         bookList.appendChild(bookItem);
     });
 
+    const publisherName = document.createElement('h3');
+    publisherName.classList.add('publisher__name');
+    const splitName = book.publisher.name.split(' ');
+    publisherName.textContent = splitName.shift();
+    splitName.forEach((part) => {
+        publisherName.appendChild(document.createElement('br'));
+        publisherName.appendChild(document.createTextNode(part));
+    });
+
     publisherSection.appendChild(publisherTitle);
-    publisherSection.appendChild(bookList);
+    publisherInfo.appendChild(bookList);
+    publisherInfo.appendChild(publisherName);
+    publisherSection.appendChild(publisherInfo);
     return publisherSection;
 }
 
