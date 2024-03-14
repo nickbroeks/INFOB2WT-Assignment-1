@@ -73,3 +73,36 @@
         width: 30%;
     }
 }
+
+.publisher {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.publisher__books {
+    text-align: center;
+    width: 50%;
+    flex-shrink: 0;
+}
+.publisher__name {
+    width: 50%;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: min(18vw, 6rem);
+}
+
+@media screen and (min-width: 768px) {
+    .publisher {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+    }
+    .publisher__books {
+        text-align: right;
+    }
+    .publisher__name {
+        text-align: left;
+    }
+}
