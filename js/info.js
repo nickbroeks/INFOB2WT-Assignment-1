@@ -340,23 +340,50 @@ function renderAuthor(author) {
 
     authorBlock.appendChild(authorTitle);
     authorBlock.appendChild(authorImage);
+    renderTooltip(authorBlock, author);
+    return authorBlock;
+}
 
+function renderTooltip(authorBlock, author) {
     const tooltipBlock = document.createElement('div');
     tooltipBlock.classList.add('tooltip');
+
     const extendInfo = document.createElement('p');
-    const br = document.createElement('br');
-    let birithdayContent = document.createTextNode('Birthday: ' + author.yearOfBirth);
-    let wikiContent = document.createTextNode('Wiki: ' + author.wikipediaPage);
+    const birithdayContent = document.createTextNode('Birthday: ' + author.yearOfBirth);
+    const nameContent = document.createTextNode('Name: ' + author.name);
+    const titlesContent = document.createTextNode('Books Written: ' + author.titles.join(', '));
+    const wikiContent = document.createTextNode('Wiki: ' + author.wikipediaPage);
+
     extendInfo.classList.add('tooltiptext--offhover');
+    extendInfo.appendChild(nameContent);
+    extendInfo.appendChild(document.createElement('br'));
+    extendInfo.appendChild(titlesContent);
+    extendInfo.appendChild(document.createElement('br'));
     extendInfo.appendChild(birithdayContent);
-    extendInfo.appendChild(br);
+    extendInfo.appendChild(document.createElement('br'));
     extendInfo.appendChild(wikiContent);
+
     tooltipBlock.appendChild(extendInfo);
+
     authorBlock.appendChild(tooltipBlock);
+
+    /* adding hyperlink to wikipedia (replace by click event now)
+
+    let wikiContent = document.createTextNode('Wiki: ');
+    let link = document.createElement('a');
+    let linkContent = document.createTextNode(author.wikipediaPage);
+    link.appendChild(linkContent);
+    link.href = author.wikipediaPage;
+    extendInfo.appendChild(wikiContent);
+    extendInfo.appendChild(link);
+
+    */
+
     authorBlock.addEventListener('mouseover', () => {
         extendInfo.classList.add('tooltiptext--onhover');
         console.log('hover');
     });
+
     authorBlock.addEventListener('mouseout', () => {
         for (let i of extendInfo.classList) {
             if (i == 'tooltiptext--onhover') {
@@ -365,7 +392,10 @@ function renderAuthor(author) {
         }
     });
 
-    return authorBlock;
+    extendInfo.addEventListener('click', () => {
+        // Is this "Event propagation"? first mouseover authorBlock, then click extendInfo
+        window.open(author.wikipediaPage, '_blank');
+    });
 }
 
 /**
