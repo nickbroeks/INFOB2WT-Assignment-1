@@ -1,50 +1,56 @@
-function renderMenu() {
+const colors = ['black', 'white', 'red', 'blue', 'green', 'yellow', 'purple', 'orange'];
+const sizes = ['small', 'medium', 'large', 'verylarge'];
+
+const JS_ELEMENT_SELECT = 'appearance__element-select';
+const JS_SIZE_SELECT = 'appearance__size-select';
+const JS_COLOR_SELECT = 'appearance__color-select';
+
+let selectedElement = null;
+let selectedSize = null;
+let selectedColor = null;
+
+function renderMenus() {
     const footer = document.querySelector('footer');
-    const selectElement = document.createElement('select');
-    const selectElement2 = document.createElement('select');
-    const selectElement3 = document.createElement('select');
+    const elementSelect = document.createElement('select');
+    const sizeSelect = document.createElement('select');
+    const colorSelect = document.createElement('select');
 
-    let elements = [];
-    const html = document.querySelector('html');
-    elements = findElement(html, elements);
-    const size = ['small', 'medium', 'large', 'verylarge'];
-    const colors = ['black', 'white', 'red', 'blue', 'green', 'yellow', 'purple', 'orange'];
+    elementSelect.classList.add(JS_ELEMENT_SELECT);
+    sizeSelect.classList.add(JS_SIZE_SELECT);
+    colorSelect.classList.add(JS_COLOR_SELECT);
 
-    renderMenu1(selectElement, footer, elements);
-    renderMenu2(selectElement2, footer, size);
-    renderMenu3(selectElement3, footer, colors);
-    let selectedElement = document.getElementById('js-Menu__Select1').value;
-    let selectedSize = document.getElementById('js-Menu__Select2').value;
-    let selectedColor = document.getElementById('js-Menu__Select3').value;
+    const elements = findElements();
 
-    selectElement3.addEventListener('change', (event) => {
-        selectedElement = document.getElementById('js-Menu__Select1').value;
-        selectedSize = document.getElementById('js-Menu__Select2').value;
-        selectedColor = event.target.value;
-        let elementQuery;
-        if (selectedElement.includes('article') || selectedElement.includes('section')) {
-            let number = selectedElement.split(' ')[1];
-            selectedElement = selectedElement.split(' ')[0];
-            elementQuery = document.querySelectorAll(selectedElement);
-            changeFontcolor(elementQuery[number - 1], selectedColor);
-            changeFontsize(elementQuery[number - 1], selectedSize);
-        } else {
-            elementQuery = document.querySelector(selectedElement);
-            changeFontcolor(elementQuery, selectedColor);
-            changeFontsize(elementQuery, selectedSize);
-        }
-    });
+    renderMenu(elementSelect, footer, elements);
+    renderMenu(sizeSelect, footer, sizes);
+    renderMenu(colorSelect, footer, colors);
+
+    sizeSelect.addEventListener('change', updateStyle);
+    colorSelect.addEventListener('change', updateStyle);
 }
 
+function updateStyle() {
+    if (selectedElement.includes('article') || selectedElement.includes('section')) {
+        let number = selectedElement.split(' ')[1];
+        selectedElement = selectedElement.split(' ')[0];
+        const elementQuery = document.querySelectorAll(selectedElement);
+        changeFontcolor(elementQuery[number - 1], selectedColor);
+        changeFontsize(elementQuery[number - 1], selectedSize);
+    } else {
+        const elementQuery = document.querySelector(selectedElement);
+        changeFontcolor(elementQuery, selectedColor);
+        changeFontsize(elementQuery, selectedSize);
+    }
+}
 /**
  * @param {HTMLSelectElement} selectElement
  * @param {HTMLElement} footer
- * @param {String []} elements
+ * @param {String []} options
  */
-function renderMenu1(selectElement, footer, elements) {
+function renderMenu(selectElement, footer, options) {
     footer.appendChild(selectElement);
-    selectElement.id = 'js-Menu__Select1';
-    for (let i of elements) {
+
+    for (let i of options) {
         const Option = document.createElement('option');
         Option.textContent = i;
         selectElement.add(Option);
@@ -52,88 +58,22 @@ function renderMenu1(selectElement, footer, elements) {
 }
 
 /**
- * @param {HTMLSelectElement} selectElement
- * @param {HTMLElement} footer
- * @param {String []} size
- */
-function renderMenu2(selectElement, footer, size) {
-    footer.appendChild(selectElement);
-    selectElement.id = 'js-Menu__Select2';
-    for (let i of size) {
-        const Option = document.createElement('option');
-        Option.textContent = i;
-        selectElement.add(Option);
-    }
-}
-
-/**
- * @param {HTMLSelectElement} selectElement
- * @param {HTMLElement} footer
- * @param {String []} colors
- */
-function renderMenu3(selectElement, footer, colors) {
-    footer.appendChild(selectElement);
-    selectElement.id = 'js-Menu__Select3';
-    for (let i of colors) {
-        const Option = document.createElement('option');
-        Option.textContent = i;
-        selectElement.add(Option);
-    }
-}
-
-/**
- * @param {NodeList} html
- * @param {String []} elements
  * @return {String []}
  */
-function findElement(html, elements) {
-    let countArticle = 1;
-    let countSection = 1;
-    for (let i of html.childNodes) {
-        if (i.nodeName == 'BODY') {
-            elements.push('body');
-            for (let j of i.childNodes) {
-                if (j.nodeName == 'HEADER') {
-                    elements.push('header');
-                }
-                if (j.nodeName == 'FOOTER') {
-                    elements.push('footer');
-                }
-                if (j.nodeName == 'ASIDE') {
-                    elements.push('aside');
-                }
-                if (j.nodeName == 'ARTICLE') {
-                    elements.push('article' + ' ' + countArticle);
-                    countArticle++;
-                }
-                if (j.nodeName == 'SECTION') {
-                    elements.push('section' + ' ' + countSection);
-                    countSection++;
-                }
-                if (j.nodeName == 'MAIN') {
-                    for (let k of j.childNodes) {
-                        if (k.nodeName == 'HEADER') {
-                            elements.push('header');
-                        }
-                        if (k.nodeName == 'FOOTER') {
-                            elements.push('footer');
-                        }
-                        if (k.nodeName == 'ASIDE') {
-                            elements.push('aside');
-                        }
-                        if (k.nodeName == 'ARTICLE') {
-                            elements.push('article' + ' ' + countArticle);
-                            countArticle++;
-                        }
-                        if (k.nodeName == 'SECTION') {
-                            elements.push('section' + ' ' + countSection);
-                            countSection++;
-                        }
-                    }
-                }
-            }
+function findElements() {
+    const counts = {
+        article: 0,
+        section: 0,
+    };
+    const elements = [...document.querySelectorAll('body, header, footer, aside, article, section')].map((el) => {
+        const node = el.nodeName.toLowerCase();
+        if (node in counts) {
+            counts[node]++;
+            return 'article' + ' ' + counts[node];
         }
-    }
+        return node;
+    });
+    console.log(elements);
     return elements;
 }
 
@@ -141,6 +81,7 @@ function findElement(html, elements) {
  * @param {NodeList} targetNode
  * @param {string} selectedColor
  */
+
 function changeFontcolor(targetNode, selectedColor) {
     // A function to change the font color using class
     for (let i of targetNode.classList) {
@@ -155,6 +96,7 @@ function changeFontcolor(targetNode, selectedColor) {
  * @param {NodeList} targetNode
  * @param {string} selectedSize
  */
+
 function changeFontsize(targetNode, selectedSize) {
     // A function to change the text color using class
     for (let i of targetNode.classList) {
@@ -164,4 +106,4 @@ function changeFontsize(targetNode, selectedSize) {
     }
     targetNode.classList.add('font-size' + '--' + selectedSize);
 }
-renderMenu();
+renderMenus();
