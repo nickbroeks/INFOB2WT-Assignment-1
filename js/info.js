@@ -340,6 +340,33 @@ function renderAuthor(author) {
 
     authorBlock.appendChild(authorTitle);
     authorBlock.appendChild(authorImage);
+    /*
+    const tooltipBlock = document.createElement('div');
+    tooltipBlock.classList.add('tooltip');
+    const extendInfo = document.createElement('p');
+    const br = document.createElement('br');
+    var birithdayContent = document.createTextNode('Birthday: ' + author.yearOfBirth);
+    var wikiContent = document.createTextNode('Wiki: ' + author.wikipediaPage);
+    extendInfo.classList.add('tooltiptext--offhover');
+    extendInfo.appendChild(birithdayContent);
+    extendInfo.appendChild(br);
+    extendInfo.appendChild(wikiContent);
+    tooltipBlock.appendChild(extendInfo);
+    authorBlock.appendChild(tooltipBlock);
+    authorImage.addEventListener('mouseover', () => {});
+    {
+        extendInfo.classList.add('tooltiptext--onhover');
+        console.log('hover');
+    }
+    authorImage.addEventListener('mouseout', () => {});
+    {
+        for (let i of extendInfo.classList) {
+            if (i == 'tooltiptext--onhover') {
+                extendInfo.classList.remove(i);
+            }
+        }
+    }
+    */
     return authorBlock;
 }
 
