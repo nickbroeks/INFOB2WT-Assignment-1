@@ -1,0 +1,40 @@
+.appearance__font-size--small p {
+    font-size: 0.8em;
+}
+.appearance__font-size--medium p {
+    font-size: 1em;
+}
+.appearance__font-size--large p {
+    font-size: 1.2em;
+}
+.appearance__font-size--verylarge p {
+    font-size: 1.4em;
+}
+
+.appearance__font-color--black * {
+    color: #000 !important;
+}
+.appearance__font-color--white * {
+    color: #fff !important;
+}
+.appearance__font-color--red * {
+    color: #ff0000 !important;
+}
+.appearance__font-color--blue * {
+    color: #0000ff !important;
+}
+.appearance__font-color--green * {
+    color: #008000 !important;
+}
+.appearance__font-color--orange * {
+    color: #ffa500 !important;
+}
+.appearance__font-color--purple * {
+    color: #800080 !important;
+}
+.appearance__font-color--yellow * {
+    color: #ffff00 !important;
+}
+.appearance__font-color--secondary * {
+    color: var(--secondary-bg-color) !important;
+}
