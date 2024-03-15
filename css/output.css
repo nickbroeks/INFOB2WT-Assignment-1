@@ -56,7 +56,13 @@ a {
 }
 
 .body__content--padding-top {
-    padding-top: 60px;
+    padding-top: calc(32px + 2 * min(6vh, 1.5rem));
+}
+
+@media screen and (min-width: 1200px) {
+    .body__content--padding-top {
+        padding-top: 60px;
+    }
 }
 
 .section--header-margin {
@@ -450,8 +456,22 @@ html .hidden {
     z-index: 100;
 }
 
+.nav {
+    display: block;
+    font-size: min(6vw, 2rem);
+}
+
 .nav__menu {
-    padding: min(4vh, 1rem) 15vw;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    opacity: 0;
+    display: none;
+    transition:
+        top 0.4s,
+        opacity 0.3s;
+    padding: 0 10vw min(6vh, 1.5rem) 10vw;
 }
 
 .nav__menu-container {
@@ -460,13 +480,7 @@ html .hidden {
 
 .nav li {
     list-style: none;
-}
-
-.nav__link,
-.nav__logo,
-.nav__burger,
-.nav__close {
-    font-size: min(3vw, 1rem);
+    margin: min(6vw, 2rem) 0;
 }
 
 .nav__logo,
@@ -476,7 +490,7 @@ html .hidden {
 
 .nav__data {
     justify-content: space-between;
-    margin: min(4vh, 1rem) 15vw;
+    margin: min(6vh, 1.5rem) 10vw;
 }
 
 .nav__logo {
@@ -517,57 +531,15 @@ html .hidden {
 
 .nav__link {
     justify-content: space-between;
+    box-shadow: 0 0 4px #ddd;
+    border: 1px solid #ddd;
+    padding: min(1vh, 0.5rem) min(3vw, 1rem);
+    height: min(12vh, 3rem);
 }
 
 .nav__link:hover {
     background-color: var(--black-color-light);
 }
-
-/* Navigation for mobile devices */
-@media screen and (max-width: 1200px) {
-    .nav {
-        display: block;
-    }
-
-    .nav__menu {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 3.5rem);
-        opacity: 0;
-        transition:
-            top 0.4s,
-            opacity 0.3s;
-        padding: 0 10vw min(6vh, 1.5rem) 10vw;
-    }
-
-    .nav__data {
-        margin: min(6vh, 1.5rem) 10vw;
-    }
-
-    .body__content--padding-top {
-        padding-top: calc(32px + 2 * min(6vh, 1.5rem));
-    }
-
-    .nav li {
-        margin: min(6vw, 2rem) 0;
-    }
-
-    .nav li,
-    .nav__logo,
-    .nav__burger,
-    .nav__close {
-        font-size: min(6vw, 2rem);
-    }
-
-    .nav__link {
-        box-shadow: 0 0 4px #ddd;
-        border: 1px solid #ddd;
-        padding: min(1vh, 0.5rem) min(3vw, 1rem);
-        height: min(12vh, 3rem);
-    }
-}
-
 /* For large devices */
 @media screen and (min-width: 1200px) {
     .nav {
@@ -575,6 +547,7 @@ html .hidden {
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
+        font-size: min(3vw, 1rem);
         position: relative;
     }
 
@@ -584,22 +557,31 @@ html .hidden {
 
     .nav__menu {
         padding: 0;
+        position: static;
+        width: unset;
+        height: unset;
+        opacity: 1;
+        display: block;
     }
 
+    .nav__data {
+        margin: min(4vh, 1rem) 15vw;
+    }
     .nav__list {
         display: flex;
     }
-
+    .nav li {
+        margin: 0;
+    }
     .nav__link {
         padding: 0 min(4.5vw, 1.5rem);
+        border-top: none;
+        border-bottom: none;
         border-left: 1px solid #ddd;
         border-right: 1px solid #ddd;
+        box-shadow: none;
+        height: unset;
     }
-}
-
-.show-menu {
-    opacity: 1;
-    pointer-events: initial;
 }
 
 /* Show icon */
@@ -724,32 +706,42 @@ html .hidden {
     color: var(--secondary-bg-color) !important;
 }
 
-.tooltip {
+.js-tooltip-container {
     position: relative;
     display: inline-block;
-    border: 1px dotted black;
 }
 
-.tooltiptext--offhover {
-    visibility: hidden;
+.js-tooltip {
+    display: none;
     background-color: #555;
     color: #fff;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 1px;
+    padding: 5px;
     position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: 0px;
+    bottom: 0;
+    right: 0;
+    margin: 0px;
     opacity: 0;
     transition: opacity 0.3s;
+    cursor: pointer;
 }
-.tooltiptext--offhover a {
-    background-color: #555;
-    color: #fff;
+.js-tooltip--display {
+    display: block;
 }
-.tooltiptext--onhover {
-    visibility: visible;
+.js-tooltip--visible {
+    opacity: 1;
+}
+
+.js-fade {
+    transition: opacity 0.3s;
+    display: none;
+    opacity: 0;
+}
+.js-fade--display {
+    display: block;
+}
+
+.js-fade--visible {
     opacity: 1;
 }

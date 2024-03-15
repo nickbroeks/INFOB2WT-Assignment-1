@@ -1,7 +1,10 @@
-'use strict';
+const toggle = document.getElementById('js-nav-toggle');
+const nav = document.getElementById('js-nav-menu');
+const header = document.getElementById('js-nav-bar');
+
+let navIsOpen = false;
 // When the user scrolls the page, execute myFunction
 window.onscroll = function () {
-    const header = document.getElementById('js-nav-bar');
     if (header) {
         const sticky = header.offsetTop;
         if (window.scrollY > sticky) {
@@ -14,13 +17,25 @@ window.onscroll = function () {
     }
 };
 
-const showMenu = (toggleId, navId) => {
-    const toggle = document.getElementById(toggleId),
-        nav = document.getElementById(navId);
-    nav.classList.toggle('show-menu');
+function showMenu() {
     toggle.classList.toggle('show-icon');
-};
+    if (navIsOpen) {
+        navIsOpen = false;
+        nav.classList.remove('js-fade--visible');
+        setTimeout(() => {
+            if (!navIsOpen) {
+                nav.classList.remove('js-fade--display');
+            }
+        }, 1000);
+        return;
+    }
+    navIsOpen = true;
+    nav.classList.add('js-fade--display');
+    setTimeout(() => {
+        nav.classList.add('js-fade--visible');
+    }, 0);
+}
 
 document.getElementById('js-nav-toggle').addEventListener('click', () => {
-    showMenu('js-nav-toggle', 'js-nav-menu');
+    showMenu();
 });
