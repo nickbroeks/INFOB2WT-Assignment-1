@@ -14,7 +14,7 @@
     border: 2px solid var(--main-bg-color);
     background-color: var(--main-bg-color);
     color: rgb(0, 0, 0);
-    font-size: 1.5rem;
+    font-size: 1.5em;
     font-family: 'Lucida Handwriting std', Serif !important;
 }
 

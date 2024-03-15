@@ -79,14 +79,14 @@ a {
 /*-------------------------------------------------------------- # Basic Text Section Start--------------------------------------------------------------*/
 
 .title {
-    font-size: min(12vw, 4rem);
+    font-size: min(12vw, 4em);
     margin-top: min(12vh, 3rem);
     margin-bottom: min(8vh, 2rem);
     font-weight: 1000;
 }
 
 .subtitle {
-    font-size: min(9vw, 3rem);
+    font-size: min(9vw, 3em);
     margin-top: min(8vh, 2rem);
     margin-bottom: min(6vh, 1.5rem);
     margin-left: 20px;
@@ -95,14 +95,14 @@ a {
 }
 
 .header-large {
-    font-size: min(6vw, 2rem);
+    font-size: min(6vw, 2em);
     margin-top: min(6vh, 1.5rem);
     margin-bottom: min(4vh, 1rem);
     font-weight: 800;
 }
 
 .header-medium {
-    font-size: min(4.5vw, 1.5rem);
+    font-size: min(4.5vw, 1.5em);
     margin-top: min(4vh, 1rem);
     margin-bottom: min(2vh, 0.5rem);
     font-weight: 600;
@@ -118,7 +118,7 @@ p {
 
 p,
 .header-small {
-    font-size: min(3vw, 1rem);
+    font-size: min(3vw, 1em);
     margin-top: min(4vh, 1rem);
     margin-bottom: min(2vh, 0.5rem);
 }
@@ -405,7 +405,7 @@ html .hidden {
 .options-container label {
     display: block;
     margin-top: min(8vh, 2rem);
-    font-size: min(4vh, 1rem);
+    font-size: min(4vh, 1em);
     font-weight: 600;
 }
 
@@ -416,7 +416,7 @@ html .hidden {
     padding: min(2vh, 0.5rem) min(1.5vw, 0.5rem);
     margin: min(2vh, 0.5rem) min(1.5vw, 0.5rem);
     text-align: center;
-    font-size: min(3vw, 1rem);
+    font-size: min(3vw, 1em);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -458,7 +458,7 @@ html .hidden {
 
 .nav {
     display: block;
-    font-size: min(6vw, 2rem);
+    font-size: min(6vw, 2em);
 }
 
 .nav__menu {
@@ -498,7 +498,7 @@ html .hidden {
     align-items: center;
     font-weight: var(--font-semi-bold);
     font-family: 'Gobold Thin', sans-serif !important;
-    font-size: min(4vw, 1.33rem);
+    font-size: min(4vw, 1.33em);
     letter-spacing: min(0.6vw, 0.2rem);
 }
 
@@ -518,7 +518,7 @@ html .hidden {
     height: max-content;
     inset: 0;
     margin: auto;
-    font-size: 1.25rem;
+    font-size: 1.25em;
     cursor: pointer;
     transition:
         opacity 0.1s,
@@ -547,7 +547,7 @@ html .hidden {
         justify-content: space-between;
         align-items: center;
         flex-direction: row;
-        font-size: min(3vw, 1rem);
+        font-size: min(3vw, 1em);
         position: relative;
     }
 
@@ -597,12 +597,12 @@ html .hidden {
 
 /*-------------------------------------------------------------- # Buttons Section --------------------------------------------------------------*/
 .btn-medium {
-    font-size: min(3vw, 1rem);
+    font-size: min(3vw, 1em);
     padding: min(2vh, 0.5rem) min(3vw, 1rem);
 }
 
 .btn-small {
-    font-size: min(2.25vw, 0.75rem);
+    font-size: min(2.25vw, 0.75em);
     padding: min(1vh, 0.25rem) min(1.5vw, 0.5rem);
 }
 
@@ -688,24 +688,9 @@ html .hidden {
 }
 
 /*-----------------Text size and Text Font Setting-------------------*/
-
-.font-size--small p {
-    font-size: 0.8em;
-}
-.font-size--medium p {
-    font-size: 1em;
-}
-.font-size--large p {
-    font-size: 1.2em;
-}
-.font-size--verylarge p {
-    font-size: 1.4em;
-}
-
 .font-color--secondary * {
     color: var(--secondary-bg-color) !important;
 }
-
 .js-tooltip-container {
     position: relative;
     display: inline-block;

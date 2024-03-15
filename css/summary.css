@@ -17,7 +17,7 @@
 .character__description {
     font-family: 'Lucida Handwriting std', Serif !important;
     color: var(--secondary-bg-color);
-    font-size: 1.5rem;
+    font-size: 1.5em;
     line-height: 1.5;
 }
 
@@ -38,7 +38,7 @@
 .character__description--text {
     font-family: 'Lucida Handwriting std', Serif !important;
     color: var(--secondary-bg-color);
-    font-size: 1.5rem;
+    font-size: 1.5em;
     line-height: 1.5;
     width: 70%;
     flex-grow: 0;
@@ -66,7 +66,7 @@
 .character__name {
     font-family: 'Lucida Handwriting std', Serif !important;
     color: var(--secondary-bg-color);
-    font-size: 1.8rem;
+    font-size: 1.8em;
     text-align: center;
     padding-top: 3vh;
 }

@@ -43,3 +43,16 @@
     *:not(.appearance__font-color--yellow .appearance__font-color--:not(.appearance__font-color--yellow) *) {
     color: #ffff00 !important;
 }
+
+.appearance__font-size--small {
+    font-size: 0.8em;
+}
+.appearance__font-size--medium {
+    font-size: 1em;
+}
+.appearance__font-size--large {
+    font-size: 1.2em;
+}
+.appearance__font-size--verylarge {
+    font-size: 1.4em;
+}
