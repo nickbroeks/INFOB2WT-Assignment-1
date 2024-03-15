@@ -435,7 +435,46 @@ function renderPublisherSection(book) {
     publisherInfo.appendChild(bookList);
     publisherInfo.appendChild(publisherName);
     publisherSection.appendChild(publisherInfo);
+    renderTooltippublisher(publisherSection, book.publisher);
     return publisherSection;
+}
+
+function renderTooltippublisher(publisherBlock, publisher) {
+    const tooltipBlock = document.createElement('div');
+    tooltipBlock.classList.add('tooltip__publisher');
+
+    const extendInfo = document.createElement('p');
+    const nameContent = document.createTextNode('Name: ' + publisher.name);
+    const titlesContent = document.createTextNode('Published Book: ' + publisher.publishedBooks.join(', '));
+    const wikiContent = document.createTextNode('Wiki: ' + publisher.wikipediaPage);
+
+    extendInfo.classList.add('tooltiptext__publisher--offhover');
+    extendInfo.appendChild(nameContent);
+    extendInfo.appendChild(document.createElement('br'));
+    extendInfo.appendChild(titlesContent);
+    extendInfo.appendChild(document.createElement('br'));
+    extendInfo.appendChild(wikiContent);
+
+    tooltipBlock.appendChild(extendInfo);
+
+    publisherBlock.appendChild(tooltipBlock);
+
+    publisherBlock.addEventListener('mouseover', () => {
+        extendInfo.classList.add('tooltiptext--onhover');
+        console.log('hover');
+    });
+
+    publisherBlock.addEventListener('mouseout', () => {
+        for (let i of extendInfo.classList) {
+            if (i == 'tooltiptext--onhover') {
+                extendInfo.classList.remove(i);
+            }
+        }
+    });
+
+    extendInfo.addEventListener('click', () => {
+        window.open(publisher.wikipediaPage, '_blank');
+    });
 }
 
 renderPage();
