@@ -1,3 +1,31 @@
+.appearance__trigger {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    text-shadow: none;
+}
+
+.appearance__menu {
+    display: none;
+    position: absolute;
+    width: 260px;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    background-color: #fff !important;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.appearance__menu * {
+    color: #000 !important;
+    text-shadow: none;
+}
+
+.appearance__menu--active {
+    display: block;
+}
+
 .appearance__font-size--small p {
     font-size: 0.8em;
 }

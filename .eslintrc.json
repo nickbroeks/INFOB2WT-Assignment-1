@@ -3,7 +3,8 @@
         "eslint:recommended"
     ],
     "rules": {
-        "no-var": "warn"
+        "no-var": "warn",
+        "camelcase": "warn"
     },
     "env": {
         "browser": true,

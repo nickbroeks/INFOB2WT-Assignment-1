@@ -28,41 +28,61 @@ function renderMenus() {
 
     const elements = findElements();
 
-    renderMenu(elementSelect, elements);
-    renderMenu(sizeSelect, sizes);
-    renderMenu(colorSelect, colors);
+    addOptions(elementSelect, elements);
+    addOptions(sizeSelect, sizes);
+    addOptions(colorSelect, colors);
+    elementSelect.addEventListener('click', (e) => e.stopPropagation());
+    sizeSelect.addEventListener('click', (e) => e.stopPropagation());
+    colorSelect.addEventListener('click', (e) => e.stopPropagation());
 
     elementSelect.addEventListener('change', updateElement);
     sizeSelect.addEventListener('change', changeFontsize);
     colorSelect.addEventListener('change', changeFontcolor);
-}
 
-function updateElement() {
+    const appearanceMenu = document.createElement('div');
+    appearanceMenu.classList.add('appearance__menu');
+    appearanceMenu.appendChild(elementSelect);
+    appearanceMenu.appendChild(sizeSelect);
+    appearanceMenu.appendChild(colorSelect);
+    const text = document.createElement('span');
+    text.textContent = 'Click here to close the menu';
+    appearanceMenu.appendChild(text);
+    const header = document.querySelector('header');
+    const menuTrigger = document.createElement('i');
+    menuTrigger.classList.add('ri-tools-line', 'appearance__trigger');
+    menuTrigger.addEventListener('click', () => {
+        appearanceMenu.classList.toggle('appearance__menu--active');
+    });
+    menuTrigger.appendChild(appearanceMenu);
+    header.appendChild(menuTrigger);
+}
+/**
+ * @param {Event} event
+ */
+function updateElement(event) {
     selectedElement = elementSelect.value;
     const element = findElement(selectedElement);
     const appearanceClasses = [...element.classList]
         .filter((c) => c.startsWith(PREFIX))
         .map((c) => c.slice(PREFIX.length));
-    const old_size = appearanceClasses.find((c) => c.startsWith());
-    selectedSize = old_size ? old_size.slice(PREFIX_FONT_COLOR.length) : 'default';
+    const oldSize = appearanceClasses.find((c) => c.startsWith());
+    selectedSize = oldSize ? oldSize.slice(PREFIX_FONT_COLOR.length) : 'default';
     sizeSelect.value = selectedSize;
-    const old_color = appearanceClasses.find((c) => c.startsWith(PREFIX_FONT_COLOR));
-    selectedColor = old_color ? old_color.slice(PREFIX_FONT_COLOR.length) : 'default';
+    const oldColor = appearanceClasses.find((c) => c.startsWith(PREFIX_FONT_COLOR));
+    selectedColor = oldColor ? oldColor.slice(PREFIX_FONT_COLOR.length) : 'default';
     colorSelect.value = selectedColor;
+    event.stopPropagation();
 }
 
 /**
  * @param {HTMLSelectElement} selectElement
  * @param {String []} options
  */
-function renderMenu(selectElement, options) {
-    const footer = document.querySelector('footer');
-    footer.appendChild(selectElement);
-
-    for (let i of options) {
-        const Option = document.createElement('option');
-        Option.textContent = i;
-        selectElement.add(Option);
+function addOptions(selectElement, options) {
+    for (let text of options) {
+        const option = document.createElement('option');
+        option.textContent = text;
+        selectElement.add(option);
     }
 }
 
@@ -100,10 +120,10 @@ function findElement(name) {
 function changeFontcolor() {
     selectedColor = colorSelect.value;
     const element = findElement(selectedElement);
-    const old_color = [...element.classList].find((c) => c.startsWith(PREFIX + PREFIX_FONT_COLOR));
-    console.log(old_color);
-    if (old_color) {
-        element.classList.remove(old_color);
+    const oldColor = [...element.classList].find((c) => c.startsWith(PREFIX + PREFIX_FONT_COLOR));
+    console.log(oldColor);
+    if (oldColor) {
+        element.classList.remove(oldColor);
         element.classList.remove(PREFIX + PREFIX_FONT_COLOR);
     }
     if (selectedColor !== 'default') {
@@ -114,9 +134,9 @@ function changeFontcolor() {
 function changeFontsize() {
     selectedSize = sizeSelect.value;
     const element = findElement(selectedElement);
-    const old_size = [...element.classList].find((c) => c.startsWith(PREFIX + PREFIX_FONT_SIZE));
-    if (old_size) {
-        element.classList.remove(old_size);
+    const oldSize = [...element.classList].find((c) => c.startsWith(PREFIX + PREFIX_FONT_SIZE));
+    if (oldSize) {
+        element.classList.remove(oldSize);
         element.classList.remove(PREFIX + PREFIX_FONT_SIZE);
     }
     if (selectedSize !== 'default') {
