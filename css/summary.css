@@ -38,7 +38,6 @@
 .character__description--text {
     font-family: 'Lucida Handwriting std', Serif !important;
     color: var(--secondary-bg-color);
-    font-size: 1.5em;
     line-height: 1.5;
     width: 70%;
     flex-grow: 0;
