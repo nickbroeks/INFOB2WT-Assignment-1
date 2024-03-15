@@ -340,62 +340,33 @@ function renderAuthor(author) {
 
     authorBlock.appendChild(authorTitle);
     authorBlock.appendChild(authorImage);
-    renderTooltip(authorBlock, author);
+    renderAuthorTooltip(authorBlock, author);
     return authorBlock;
 }
 
-function renderTooltip(authorBlock, author) {
-    const tooltipBlock = document.createElement('div');
-    tooltipBlock.classList.add('tooltip');
-
+/**
+ * @param {HTMLElement} authorBlock
+ * @param {Author} author
+ */
+function renderAuthorTooltip(authorBlock, author) {
     const extendInfo = document.createElement('p');
     const birithdayContent = document.createTextNode('Birthday: ' + author.yearOfBirth);
     const nameContent = document.createTextNode('Name: ' + author.name);
     const titlesContent = document.createTextNode('Books Written: ' + author.titles.join(', '));
-    const wikiContent = document.createTextNode('Wiki: ' + author.wikipediaPage);
+    const clickContent = document.createTextNode('Click to learn more');
 
-    extendInfo.classList.add('tooltiptext--offhover');
     extendInfo.appendChild(nameContent);
     extendInfo.appendChild(document.createElement('br'));
     extendInfo.appendChild(titlesContent);
     extendInfo.appendChild(document.createElement('br'));
     extendInfo.appendChild(birithdayContent);
     extendInfo.appendChild(document.createElement('br'));
-    extendInfo.appendChild(wikiContent);
-
-    tooltipBlock.appendChild(extendInfo);
-
-    authorBlock.appendChild(tooltipBlock);
-
-    /* adding hyperlink to wikipedia (replace by click event now)
-
-    let wikiContent = document.createTextNode('Wiki: ');
-    let link = document.createElement('a');
-    let linkContent = document.createTextNode(author.wikipediaPage);
-    link.appendChild(linkContent);
-    link.href = author.wikipediaPage;
-    extendInfo.appendChild(wikiContent);
-    extendInfo.appendChild(link);
-
-    */
-
-    authorBlock.addEventListener('mouseover', () => {
-        extendInfo.classList.add('tooltiptext--onhover');
-        console.log('hover');
-    });
-
-    authorBlock.addEventListener('mouseout', () => {
-        for (let i of extendInfo.classList) {
-            if (i == 'tooltiptext--onhover') {
-                extendInfo.classList.remove(i);
-            }
-        }
-    });
-
+    extendInfo.appendChild(clickContent);
     extendInfo.addEventListener('click', () => {
         // Is this "Event propagation"? first mouseover authorBlock, then click extendInfo
         window.open(author.wikipediaPage, '_blank');
     });
+    attachTooltip(authorBlock, extendInfo);
 }
 
 /**
@@ -435,45 +406,51 @@ function renderPublisherSection(book) {
     publisherInfo.appendChild(bookList);
     publisherInfo.appendChild(publisherName);
     publisherSection.appendChild(publisherInfo);
-    renderTooltippublisher(publisherSection, book.publisher);
+    renderPublisherTooltip(publisherInfo, book.publisher);
     return publisherSection;
 }
 
-function renderTooltippublisher(publisherBlock, publisher) {
-    const tooltipBlock = document.createElement('div');
-    tooltipBlock.classList.add('tooltip__publisher');
-
+/**
+ * @param {HTMLElement} publisherBlock
+ * @param {Publisher} publisher
+ */
+function renderPublisherTooltip(publisherBlock, publisher) {
     const extendInfo = document.createElement('p');
     const nameContent = document.createTextNode('Name: ' + publisher.name);
-    const titlesContent = document.createTextNode('Published Book: ' + publisher.publishedBooks.join(', '));
-    const wikiContent = document.createTextNode('Wiki: ' + publisher.wikipediaPage);
+    const clickContent = document.createTextNode('Click to learn more');
 
-    extendInfo.classList.add('tooltiptext__publisher--offhover');
     extendInfo.appendChild(nameContent);
     extendInfo.appendChild(document.createElement('br'));
-    extendInfo.appendChild(titlesContent);
-    extendInfo.appendChild(document.createElement('br'));
-    extendInfo.appendChild(wikiContent);
-
-    tooltipBlock.appendChild(extendInfo);
-
-    publisherBlock.appendChild(tooltipBlock);
-
-    publisherBlock.addEventListener('mouseover', () => {
-        extendInfo.classList.add('tooltiptext--onhover');
-        console.log('hover');
-    });
-
-    publisherBlock.addEventListener('mouseout', () => {
-        for (let i of extendInfo.classList) {
-            if (i == 'tooltiptext--onhover') {
-                extendInfo.classList.remove(i);
-            }
-        }
-    });
-
+    extendInfo.appendChild(clickContent);
     extendInfo.addEventListener('click', () => {
         window.open(publisher.wikipediaPage, '_blank');
+    });
+    attachTooltip(publisherBlock, extendInfo);
+}
+
+/**
+ * @param {HTMLElement} container
+ * @param {HTMLElement} tooltip
+ */
+function attachTooltip(container, tooltip) {
+    container.classList.add('js-tooltip-container');
+    tooltip.classList.add('js-tooltip');
+    container.appendChild(tooltip);
+
+    container.addEventListener('mouseenter', () => {
+        tooltip.classList.add('js-tooltip--display');
+        setTimeout(() => {
+            tooltip.classList.add('js-tooltip--visible');
+        }, 0);
+    });
+
+    container.addEventListener('mouseleave', () => {
+        tooltip.classList.remove('js-tooltip--visible');
+        setTimeout(() => {
+            if (!tooltip.classList.contains('js-tooltip--visible')) {
+                tooltip.classList.remove('js-tooltip--display');
+            }
+        }, 1000);
     });
 }
 
