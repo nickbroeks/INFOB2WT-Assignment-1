@@ -500,6 +500,7 @@ html .hidden {
     font-family: 'Gobold Thin', sans-serif !important;
     font-size: min(4vw, 1.33em);
     letter-spacing: min(0.6vw, 0.2rem);
+    user-select: none;
 }
 
 .nav__toggle {
