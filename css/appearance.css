@@ -13,13 +13,14 @@
     top: 20px;
     left: 20px;
     z-index: 100;
-    background-color: #fff !important;
+    background-color: #ccc !important;
     border-radius: 5px;
     padding: 20px;
 }
 
 .appearance__menu * {
     color: #000 !important;
+    background-color: #ccc !important;
     text-shadow: none;
 }
 
