@@ -6,8 +6,24 @@
         "no-var": "warn",
         "camelcase": "warn"
     },
-    "env": {
-        "browser": true,
-        "es2022": true
-    }
+    "overrides": [
+        {
+            "files": [
+                "client/**/*.js"
+            ],
+            "env": {
+                "browser": true,
+                "es2022": true
+            }
+        },
+        {
+            "files": [
+                "server/**/*.js"
+            ],
+            "env": {
+                "node": true,
+                "es2022": true
+            }
+        }
+    ]
 }
