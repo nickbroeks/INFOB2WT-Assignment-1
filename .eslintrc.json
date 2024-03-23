@@ -4,12 +4,13 @@
     ],
     "rules": {
         "no-var": "warn",
-        "camelcase": "warn"
+        "camelcase": "warn",
+        "prefer-const": "warn"
     },
     "overrides": [
         {
             "files": [
-                "client/**/*.js"
+                "src/public/**/*.js"
             ],
             "env": {
                 "browser": true,
@@ -18,7 +19,10 @@
         },
         {
             "files": [
-                "server/**/*.js"
+                "src/**/*.js"
+            ],
+            "excludedFiles": [
+                "src/public/**/*.js"
             ],
             "env": {
                 "node": true,
