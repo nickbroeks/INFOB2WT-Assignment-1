@@ -7,10 +7,23 @@ const db = new sqlite3.Database(file);
 
 db.serialize(function () {
     if (!exists) {
-        db.run('CREATE TABLE Users (id INTEGER PRIMARY KEY, name TEXT, hash TEXT)');
+        const initilizing = fs.readFileSync('init.sql', 'utf8');
+        db.exec(initilizing, function (res, err) {
+            if (res) console.log('Database initialized.');
+            if (err) throw new Error('Failed to initialize database.');
+        });
     }
 });
 
-db.close();
+async function getBooks() {
+    return new Promise((resolve, reject) => {
+        db.all('SELECT * FROM Books', function (err, rows) {
+            if (err) reject(err);
+            else resolve(rows);
+        });
+    });
+}
 
-module.exports = db;
+module.exports = {
+    getBooks,
+};
