@@ -64,7 +64,22 @@
                             Password:
                             <input class="form__input" type="password" name="password" placeholder="Password" />
                         </p>
-                        <button class="btn-medium btn-main margin-top" type="submit">Submit</button>
+                        <div class="flex-container-col">
+                            <button
+                                class="btn-medium btn-main margin-top"
+                                formaction="http://localhost:8001/login"
+                                type="submit"
+                            >
+                                Register
+                            </button>
+                            <button
+                                class="btn-medium btn-main margin-top"
+                                formaction="http://localhost:8001/register"
+                                type="submit"
+                            >
+                                Login
+                            </button>
+                        </div>
                     </form>
                 </div>
             </section>
