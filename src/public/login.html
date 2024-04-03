@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/login.css" />
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
         <script src="js/nav.js" defer></script>
+        <script src="js/login.js" defer></script>
     </head>
 
     <body class="body">
@@ -58,24 +59,39 @@
                     <form class="login-form" name="login_data" action="http://localhost:8001/processForm" method="POST">
                         <p>
                             Username:
-                            <input class="form__input" type="text" name="username" placeholder="Username" required />
+                            <input
+                                id="username"
+                                class="form__input"
+                                type="text"
+                                name="username"
+                                placeholder="Username"
+                                required
+                            />
                         </p>
                         <p>
                             Password:
-                            <input class="form__input" type="password" name="password" placeholder="Password" />
+                            <input
+                                id="password"
+                                class="form__input"
+                                type="password"
+                                name="password"
+                                placeholder="Password"
+                            />
                         </p>
                         <div class="flex-container-col">
                             <button
+                                id="register-btn"
                                 class="btn-medium btn-main margin-top"
-                                formaction="http://localhost:8001/login"
-                                type="submit"
+                                formaction="http://localhost:8001/register"
+                                type="button"
                             >
                                 Register
                             </button>
                             <button
+                                id="login-btn"
                                 class="btn-medium btn-main margin-top"
-                                formaction="http://localhost:8001/register"
-                                type="submit"
+                                formaction="http://localhost:8001/login"
+                                type="button"
                             >
                                 Login
                             </button>

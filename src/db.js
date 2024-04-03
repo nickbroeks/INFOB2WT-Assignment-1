@@ -24,6 +24,36 @@ async function getBooks() {
     });
 }
 
+async function getUser(name) {
+    return new Promise((resolve, reject) => {
+        db.get('SELECT * FROM Users WHERE name = ?', [name], function (err, row) {
+            if (err) reject(err);
+            else resolve(row);
+        });
+    });
+}
+
+async function getAllUsers() {
+    return new Promise((resolve, reject) => {
+        db.all('SELECT * FROM Users', function (err, rows) {
+            if (err) reject(err);
+            else resolve(rows);
+        });
+    });
+}
+
+async function createUser(name, hash) {
+    return new Promise((resolve, reject) => {
+        db.run('INSERT INTO Users (name, hash) VALUES (?, ?)', [name, hash], function (err) {
+            if (err) reject(err);
+            else resolve();
+        });
+    });
+}
+
 module.exports = {
     getBooks,
+    getUser,
+    getAllUsers,
+    createUser,
 };
