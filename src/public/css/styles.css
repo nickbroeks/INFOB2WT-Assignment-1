@@ -536,6 +536,7 @@ html .hidden {
     border: 1px solid #ddd;
     padding: min(1vh, 0.5rem) min(3vw, 1rem);
     height: min(12vh, 3rem);
+    cursor: pointer;
 }
 
 .nav__link:hover {

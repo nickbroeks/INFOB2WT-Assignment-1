@@ -39,3 +39,34 @@ function showMenu() {
 document.getElementById('js-nav-toggle').addEventListener('click', () => {
     showMenu();
 });
+
+function updateLogin() {
+    const login = document.getElementById('js-login-button');
+    fetch('/user')
+        .then((res) => {
+            if (res.status === 200) {
+                return res.json();
+            }
+            return null;
+        })
+        .then((data) => {
+            if (data) {
+                while (login.firstChild) {
+                    login.removeChild(login.firstChild);
+                }
+                const logout = document.createElement('span');
+                logout.textContent = 'Logout';
+                logout.classList.add('nav__link', 'flex-container');
+                logout.addEventListener('click', () => {
+                    fetch('/logout', {
+                        method: 'POST',
+                    }).then(() => {
+                        window.location.href = '/';
+                    });
+                });
+                login.appendChild(logout);
+            }
+        });
+}
+
+updateLogin();

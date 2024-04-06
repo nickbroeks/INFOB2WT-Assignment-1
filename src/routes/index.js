@@ -16,6 +16,9 @@ router.get('/users', isAuthenticated, (req, res) => {
         });
 });
 
+router.get('/user', isAuthenticated, (req, res) => {
+    res.json({ user: req.session.user });
+});
 router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -58,6 +61,11 @@ router.post('/login', express.urlencoded({ extended: false }), async (req, res, 
     } catch (err) {
         return next(err);
     }
+});
+
+router.post('/logout', isAuthenticated, (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
 });
 
 module.exports = router;
