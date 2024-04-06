@@ -18,7 +18,7 @@ db.serialize(function () {
 
 async function getBooks() {
     return new Promise((resolve, reject) => {
-        db.all('SELECT * FROM Books', function (err, rows) {
+        db.all('SELECT BookID, Title, Genre, Year, CoverImageURL FROM Books', function (err, rows) {
             if (err) reject(err);
             else resolve(rows);
         });

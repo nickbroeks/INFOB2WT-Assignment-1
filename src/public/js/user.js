@@ -36,3 +36,5 @@ function logOut() {
     });
 }
 updateLogin();
+
+export { user, User };
