@@ -4,7 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const session = require('express-session');
-const sessionOptions = { secret: 'SECRET', resave: false, saveUninitialized: false };
+const sessionOptions = { secret: 'SECRET', resave: false, saveUninitialized: true };
 
 const indexRouter = require('./routes/index');
 const { getBooks } = require('./db');
