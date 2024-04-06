@@ -67,6 +67,40 @@ class Author extends Person {
     get wikipediaPage() {
         return this.#wikipediaPage;
     }
+
+    /**
+     * @returns {HTMLElement}
+     */
+    renderAuthor() {
+        const authorBlock = createElementWithClasses('div', ['author']);
+        const authorTitle = createElementWithClasses('h2', ['header-medium']);
+        authorTitle.textContent = this.name;
+
+        const authorImage = createElementWithClasses('img', ['author__image']);
+        authorImage.src = this.picture;
+        authorImage.alt = `Picture of ${this.name}`;
+
+        authorBlock.appendChild(authorTitle);
+        authorBlock.appendChild(authorImage);
+        this.renderAuthorTooltip(authorBlock);
+
+        return authorBlock;
+    }
+
+    renderAuthorTooltip(authorBlock) {
+        const extendInfo = document.createElement('p');
+        const birithdayContent = 'Birthday: ' + this.yearOfBirth;
+        const nameContent = 'Name: ' + this.name;
+        const titlesContent = 'Books Written: ' + this.titles.join(', ');
+        const clickContent = 'Click to learn more';
+
+        addTextsWithBreaks(extendInfo, [nameContent, titlesContent, birithdayContent, clickContent]);
+        extendInfo.addEventListener('click', () => {
+            // Is this "Event propagation"? first mouseover authorBlock, then click extendInfo
+            window.open(this.wikipediaPage, '_blank');
+        });
+        attachTooltip(authorBlock, extendInfo);
+    }
 }
 
 class Company {
@@ -116,6 +150,49 @@ class Publisher extends Company {
     get publishedBooks() {
         return this.#publishedBooks;
     }
+
+    /**
+     * @returns {HTMLElement}
+     */
+    renderPublisherSection() {
+        const publisherSection = createElementWithClasses('section', ['section', 'section--accent']);
+
+        const publisherTitle = createElementWithClasses('h2', ['header-medium']);
+        publisherTitle.textContent = 'Publisher';
+        publisherSection.appendChild(publisherTitle);
+
+        const publisherInfo = createElementWithClasses('div', ['publisher']);
+
+        const bookList = createElementWithClasses('ul', ['publisher__books']);
+        this.publishedBooks.forEach((book) => {
+            const bookItem = createElementWithClasses('li', ['text-large', 'list-item--no-bullets']);
+            bookItem.textContent = book;
+            bookList.appendChild(bookItem);
+        });
+        const publisherName = createElementWithClasses('h3', ['publisher__name']);
+        const splitName = this.name.split(' ');
+        addTextsWithBreaks(publisherName, splitName);
+
+        publisherInfo.appendChild(bookList);
+        publisherInfo.appendChild(publisherName);
+
+        publisherSection.appendChild(publisherInfo);
+        this.renderPublisherTooltip(publisherInfo);
+
+        return publisherSection;
+    }
+
+    renderPublisherTooltip(publisherBlock) {
+        const extendInfo = document.createElement('p');
+        const nameContent = 'Name: ' + this.name;
+        const clickContent = 'Click to learn more';
+
+        addTextsWithBreaks(extendInfo, [nameContent, clickContent]);
+        extendInfo.addEventListener('click', () => {
+            window.open(this.wikipediaPage, '_blank');
+        });
+        attachTooltip(publisherBlock, extendInfo);
+    }
 }
 
 class CreativeWork {
@@ -158,7 +235,7 @@ class Book extends CreativeWork {
     #publisher;
     #cover;
     #plot;
-
+    #root;
     /**
      * @param {string} title
      * @param {string} genre
@@ -174,6 +251,7 @@ class Book extends CreativeWork {
         this.#publisher = publisher;
         this.#cover = cover;
         this.#plot = plot;
+        this.#root = document.querySelector('main');
     }
 
     /**
@@ -199,6 +277,72 @@ class Book extends CreativeWork {
 
     get plot() {
         return this.#plot;
+    }
+
+    render() {
+        this.renderTitleSection();
+        this.renderBookSection();
+        this.renderAuthorSection();
+        this.renderPublisherSection();
+    }
+
+    renderTitleSection() {
+        const titleSection = createElementWithClasses('section', [
+            'section',
+            'section--accent',
+            'body__content--padding-top',
+        ]);
+        const bookTitle = createElementWithClasses('h1', ['title']);
+        bookTitle.textContent = this.title;
+
+        titleSection.appendChild(bookTitle);
+        this.#root.appendChild(titleSection);
+    }
+
+    renderBookSection() {
+        const bookSection = createElementWithClasses('section', [
+            'section',
+            'section--accent',
+            'section--no-padding-mobile',
+            'book-section',
+        ]);
+        const bookSectionLeft = createElementWithClasses('div', ['book-section__info']);
+
+        const plotTitle = createElementWithClasses('h2', ['header-medium']);
+        plotTitle.textContent = `The Plot`;
+
+        const bookPlot = document.createElement('p');
+        bookPlot.textContent = this.plot;
+
+        const bookCover = createElementWithClasses('img', ['book-section__cover']);
+        bookCover.src = this.cover;
+        bookCover.alt = `Cover of the book ${this.title}`;
+
+        bookSectionLeft.appendChild(plotTitle);
+        bookSectionLeft.appendChild(bookPlot);
+        bookSection.appendChild(bookSectionLeft);
+        bookSection.appendChild(bookCover);
+
+        this.#root.appendChild(bookSection);
+    }
+
+    renderAuthorSection() {
+        const authorSection = createElementWithClasses('section', ['section', 'section--alt']);
+        const authorTitle = createElementWithClasses('h2', ['header-medium']);
+        authorTitle.textContent = 'Authors';
+
+        const authorsList = createElementWithClasses('div', ['authors']);
+        this.authors.forEach((author) => {
+            authorsList.appendChild(author.renderAuthor());
+        });
+
+        authorSection.appendChild(authorTitle);
+        authorSection.appendChild(authorsList);
+        this.#root.appendChild(authorSection);
+    }
+
+    renderPublisherSection() {
+        this.#root.appendChild(this.publisher.renderPublisherSection());
     }
 }
 //#endregion
@@ -237,197 +381,6 @@ function createBook() {
     return book;
 }
 
-function renderPage() {
-    const main = document.querySelector('main');
-
-    const book = createBook();
-
-    const titleSection = renderTitleSection(book);
-    const bookSection = renderBookSection(book);
-    const authorSection = renderAuthorSection(book);
-    const publisherSection = renderPublisherSection(book);
-
-    main.appendChild(titleSection);
-    main.appendChild(bookSection);
-    main.appendChild(authorSection);
-    main.appendChild(publisherSection);
-}
-
-/**
- * @param {Book} book
- * @returns {HTMLDivElement}
- */
-function renderTitleSection(book) {
-    const titleSection = document.createElement('section');
-    titleSection.classList.add('section', 'section--accent', 'body__content--padding-top');
-    const bookTitle = document.createElement('h1');
-    bookTitle.classList.add('title');
-    bookTitle.textContent = book.title;
-
-    titleSection.appendChild(bookTitle);
-    return titleSection;
-}
-/**
- * @param {Book} book
- * @returns {HTMLDivElement}
- */
-function renderBookSection(book) {
-    const bookSection = document.createElement('section');
-    bookSection.classList.add('section', 'section--accent', 'section--no-padding-mobile', 'book-section');
-
-    const bookSectionLeft = document.createElement('div');
-    bookSectionLeft.classList.add('book-section__info');
-
-    const plotTitle = document.createElement('h2');
-    plotTitle.classList.add('header-medium');
-    plotTitle.textContent = `The Plot`;
-
-    const bookPlot = document.createElement('p');
-    bookPlot.textContent = book.plot;
-
-    const bookCover = document.createElement('img');
-    bookCover.classList.add('book-section__cover');
-    bookCover.src = book.cover;
-    bookCover.alt = `Cover of the book ${book.title}`;
-
-    bookSectionLeft.appendChild(plotTitle);
-    bookSectionLeft.appendChild(bookPlot);
-    bookSection.appendChild(bookSectionLeft);
-    bookSection.appendChild(bookCover);
-
-    return bookSection;
-}
-
-/**
- * @param {Book} book
- * @returns {HTMLDivElement}
- */
-function renderAuthorSection(book) {
-    const authorSection = document.createElement('section');
-    authorSection.classList.add('section', 'section--alt');
-
-    const authorTitle = document.createElement('h2');
-    authorTitle.classList.add('header-medium');
-    authorTitle.textContent = 'Authors';
-
-    const authorsList = document.createElement('div');
-    authorsList.classList.add('authors');
-    book.authors.forEach((author) => {
-        authorsList.appendChild(renderAuthor(author));
-    });
-
-    authorSection.appendChild(authorTitle);
-    authorSection.appendChild(authorsList);
-    return authorSection;
-}
-
-/**
- * @param {Author} author
- * @param {boolean} isEven
- * @returns {HTMLDivElement}
- */
-function renderAuthor(author) {
-    const authorBlock = document.createElement('div');
-    authorBlock.classList.add('author');
-    const authorTitle = document.createElement('h2');
-    authorTitle.classList.add('header-medium');
-    authorTitle.textContent = author.name;
-
-    const authorImage = document.createElement('img');
-    authorImage.classList.add('author__image');
-    authorImage.src = author.picture;
-    authorImage.alt = `Picture of ${author.name}`;
-
-    authorBlock.appendChild(authorTitle);
-    authorBlock.appendChild(authorImage);
-    renderAuthorTooltip(authorBlock, author);
-    return authorBlock;
-}
-
-/**
- * @param {HTMLElement} authorBlock
- * @param {Author} author
- */
-function renderAuthorTooltip(authorBlock, author) {
-    const extendInfo = document.createElement('p');
-    const birithdayContent = document.createTextNode('Birthday: ' + author.yearOfBirth);
-    const nameContent = document.createTextNode('Name: ' + author.name);
-    const titlesContent = document.createTextNode('Books Written: ' + author.titles.join(', '));
-    const clickContent = document.createTextNode('Click to learn more');
-
-    extendInfo.appendChild(nameContent);
-    extendInfo.appendChild(document.createElement('br'));
-    extendInfo.appendChild(titlesContent);
-    extendInfo.appendChild(document.createElement('br'));
-    extendInfo.appendChild(birithdayContent);
-    extendInfo.appendChild(document.createElement('br'));
-    extendInfo.appendChild(clickContent);
-    extendInfo.addEventListener('click', () => {
-        // Is this "Event propagation"? first mouseover authorBlock, then click extendInfo
-        window.open(author.wikipediaPage, '_blank');
-    });
-    attachTooltip(authorBlock, extendInfo);
-}
-
-/**
- * @param {Book} book
- * @returns {HTMLDivElement}
- */
-function renderPublisherSection(book) {
-    const publisherSection = document.createElement('section');
-    publisherSection.classList.add('section', 'section--accent');
-
-    const publisherTitle = document.createElement('h2');
-    publisherTitle.classList.add('header-medium');
-    publisherTitle.textContent = 'Publisher';
-
-    const publisherInfo = document.createElement('div');
-    publisherInfo.classList.add('publisher');
-
-    const bookList = document.createElement('ul');
-    bookList.classList.add('publisher__books');
-    book.publisher.publishedBooks.forEach((book) => {
-        const bookItem = document.createElement('li');
-        bookItem.classList.add('text-large', 'list-item--no-bullets');
-        bookItem.textContent = book;
-        bookList.appendChild(bookItem);
-    });
-
-    const publisherName = document.createElement('h3');
-    publisherName.classList.add('publisher__name');
-    const splitName = book.publisher.name.split(' ');
-    publisherName.textContent = splitName.shift();
-    splitName.forEach((part) => {
-        publisherName.appendChild(document.createElement('br'));
-        publisherName.appendChild(document.createTextNode(part));
-    });
-
-    publisherSection.appendChild(publisherTitle);
-    publisherInfo.appendChild(bookList);
-    publisherInfo.appendChild(publisherName);
-    publisherSection.appendChild(publisherInfo);
-    renderPublisherTooltip(publisherInfo, book.publisher);
-    return publisherSection;
-}
-
-/**
- * @param {HTMLElement} publisherBlock
- * @param {Publisher} publisher
- */
-function renderPublisherTooltip(publisherBlock, publisher) {
-    const extendInfo = document.createElement('p');
-    const nameContent = document.createTextNode('Name: ' + publisher.name);
-    const clickContent = document.createTextNode('Click to learn more');
-
-    extendInfo.appendChild(nameContent);
-    extendInfo.appendChild(document.createElement('br'));
-    extendInfo.appendChild(clickContent);
-    extendInfo.addEventListener('click', () => {
-        window.open(publisher.wikipediaPage, '_blank');
-    });
-    attachTooltip(publisherBlock, extendInfo);
-}
-
 /**
  * @param {HTMLElement} container
  * @param {HTMLElement} tooltip
@@ -454,4 +407,30 @@ function attachTooltip(container, tooltip) {
     });
 }
 
-renderPage();
+/**
+ * @param {HTMLElement} element
+ * @param {string[]} texts
+ */
+function addTextsWithBreaks(element, texts) {
+    let isFirst = true;
+    texts.forEach((text) => {
+        if (!isFirst) {
+            element.appendChild(document.createElement('br'));
+        } else {
+            isFirst = false;
+        }
+        element.appendChild(document.createTextNode(text));
+    });
+}
+
+/**
+ * @param {string} tag
+ * @param {string[]} classes
+ * @returns {HTMLElement}
+ */
+function createElementWithClasses(tag, classes) {
+    const element = document.createElement(tag);
+    element.classList.add(...classes);
+    return element;
+}
+createBook().render();
