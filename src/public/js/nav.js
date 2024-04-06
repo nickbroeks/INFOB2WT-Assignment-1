@@ -50,7 +50,7 @@ function updateLogin() {
             return null;
         })
         .then((data) => {
-            if (data) {
+            if (data && data.user) {
                 while (login.firstChild) {
                     login.removeChild(login.firstChild);
                 }

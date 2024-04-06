@@ -16,10 +16,14 @@ router.get('/users', isAuthenticated, (req, res) => {
         });
 });
 
-router.get('/user', isAuthenticated, (req, res) => {
+router.get('/user', (req, res) => {
+    if (!req.session.user) {
+        return res.status(200).send({});
+    }
     res.json({ user: req.session.user });
 });
-router.post('/register', async (req, res) => {
+
+router.post('/register', async (req, res, next) => {
     try {
         const { username, password } = req.body;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
@@ -29,7 +33,18 @@ router.post('/register', async (req, res) => {
             return res.status(409).send();
         }
         await db.createUser(username, hashedPassword);
-        return res.status(201).send();
+        req.session.regenerate(function (err) {
+            if (err) return next(err);
+            // store user information in session, typically a user id
+            req.session.user = username;
+
+            // save the session before redirection to ensure page
+            // load does not happen before session is saved
+            req.session.save(function (err) {
+                if (err) return next(err);
+                return res.status(201).send();
+            });
+        });
     } catch (err) {
         return res.status(501).send();
     }
@@ -55,7 +70,7 @@ router.post('/login', express.urlencoded({ extended: false }), async (req, res, 
             // load does not happen before session is saved
             req.session.save(function (err) {
                 if (err) return next(err);
-                return res.redirect('/');
+                return res.status(200).send();
             });
         });
     } catch (err) {
