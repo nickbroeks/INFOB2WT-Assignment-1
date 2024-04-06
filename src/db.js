@@ -1,3 +1,4 @@
+const { randomUUID } = require('crypto');
 const fs = require('fs');
 const file = 'data.db';
 const exists = fs.existsSync(file);
@@ -44,7 +45,7 @@ async function getAllUsers() {
 
 async function createUser(name, hash) {
     return new Promise((resolve, reject) => {
-        db.run('INSERT INTO Users (name, hash) VALUES (?, ?)', [name, hash], function (err) {
+        db.run('INSERT INTO Users (id, name, hash) VALUES (?, ?, ?)', [randomUUID(), name, hash], function (err) {
             if (err) reject(err);
             else resolve();
         });
