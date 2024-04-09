@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Contact us page for A Song of Ice and Fire fanpage." />
+        <title>A Song of Ice and Fire | Fanpage</title>
+        <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet" />
+        <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="css/login.css" />
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+        <script src="js/nav.js" defer></script>
+        <script src="js/user.js" defer></script>
+        <script src="js/login.js" defer></script>
+    </head>
+
+    <body class="body">
+        <header id="js-nav-bar" class="header js-nav-bar--transparent">
+            <nav class="nav">
+                <div class="flex-container nav__data">
+                    <a href="index.html" class="nav__logo"> A Song of Ice and Fire </a>
+                    <div class="nav__toggle" id="js-nav-toggle">
+                        <i class="ri-menu-line nav__burger"></i>
+                        <i class="ri-close-line nav__close"></i>
+                    </div>
+                </div>
+
+                <!--=============== NAV MENU ===============-->
+                <div class="nav__menu-container">
+                    <div class="nav__menu" id="js-nav-menu">
+                        <ul class="nav__list">
+                            <li><a class="nav__link flex-container" href="info.html">Info</a></li>
+                            <li><a class="nav__link flex-container" href="contact.html">Contact</a></li>
+                            <li>
+                                <a id="js-login-button" class="nav__link flex-container" href="login.html">Login</a>
+                                <span id="js-logout-button" class="nav__link flex-container hidden">Logout</span>
+                            </li>
+                            <li>
+                                <a id="js-profile-button" class="nav__link flex-container hidden" href="profile.html"
+                                    >UserProfile</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <main class="body__content">
+            <section class="section section--fill-height background-overlay">
+                <img
+                    class="background-overlay__image"
+                    sizes="(max-width: 1920px) 100vw, 1920px"
+                    srcset="
+                        img/a-song-of-ice-and-fire-tp_eovbsd_c_scale,w_300.webp   300w,
+                        img/a-song-of-ice-and-fire-tp_eovbsd_c_scale,w_964.webp   964w,
+                        img/a-song-of-ice-and-fire-tp_eovbsd_c_scale,w_1405.webp 1405w,
+                        img/a-song-of-ice-and-fire-tp_eovbsd_c_scale,w_1905.webp 1905w,
+                        img/a-song-of-ice-and-fire-tp_eovbsd_c_scale,w_1920.webp 1920w
+                    "
+                    src="img/a-song-of-ice-and-fire-tp_eovbsd_c_scale,w_1920.webp"
+                    alt="Wallpaper Background Image"
+                />
+                <div class="build-border login-block text-center">
+                    <h1 class="title no-margin">Profile</h1>
+                    <p>Username:</p>
+                    <p>Password:</p>
+                    <p>Name:<br /></p>
+                    <p>Email:<br /></p>
+                    <p>Address:</p>
+                    <p>Reservation record:</p>
+                </div>
+            </section>
+        </main>
+        <footer class="body__footer section--alt">
+            <span>&copy; 2024 All rights reserved.</span>
+        </footer>
+    </body>
+</html>
