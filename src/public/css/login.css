@@ -10,6 +10,9 @@
     flex-direction: column;
 }
 
+.register-block {
+    height: 100%;
+}
 .login-form {
     display: flex;
     flex-direction: column;
@@ -37,5 +40,8 @@
     .login-form {
         gap: 4vh;
         margin-top: 5vh;
+    }
+    .register-block {
+        height: 100%;
     }
 }

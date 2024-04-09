@@ -24,8 +24,10 @@ function updateLogin() {
 function showLogout() {
     const login = document.getElementById('js-login-button');
     const logout = document.getElementById('js-logout-button');
+    const profile = document.getElementById('js-profile-button');
     login.classList.add('hidden');
     logout.classList.remove('hidden');
+    profile.classList.remove('hidden');
     logout.addEventListener('click', logOut);
 }
 
