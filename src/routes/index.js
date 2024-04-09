@@ -1,9 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
+const { isAuthenticated } = require('../middleware');
+const db = require('../db');
 
-router.get('/users', (req, res) => {
-    const db = require('../db');
+const saltRounds = 10;
+
+router.get('/users', isAuthenticated, (req, res) => {
     db.getAllUsers()
         .then((users) => {
             res.json(users);
@@ -13,50 +16,72 @@ router.get('/users', (req, res) => {
         });
 });
 
-router.post('/register', async (req, res) => {
-    const db = require('../db');
-    const { username, password } = req.body;
-    const saltRounds = 10;
-    const hashedPassword = await bcrypt.hash(password, saltRounds);
-    console.log(username, password, hashedPassword);
-    await db
-        .getUser(username)
-        .then((user) => {
-            if (user) {
-                return res.status(409).send();
-            }
-            return db.createUser(username, hashedPassword);
-        })
-        .then(() => {
-            return res.status(201).send();
-        })
-        .catch(() => {
-            return res.status(500).send();
-        });
+router.get('/user', (req, res) => {
+    if (!req.session.user) {
+        return res.status(200).send({});
+    }
+    res.json({ user: req.session.user });
 });
 
-router.post('/login', async (req, res) => {
-    const db = require('../db');
-    const { username, password } = req.body;
-    await db
-        .getUser(username)
-        .then(async (row) => {
-            if (!row) {
-                return res.status(401).send();
-            } else {
-                const match = await bcrypt.compare(password, row.hash);
-                if (match) {
-                    console.log('Logged in');
-                    req.session.name = username;
-                    return res.status(200).send();
-                } else {
-                    return res.status(401).send();
-                }
-            }
-        })
-        .catch(() => {
-            return res.status(500).send();
+router.post('/register', async (req, res, next) => {
+    try {
+        const { username, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
+        console.log(username, password, hashedPassword);
+        const user = await db.getUser(username);
+        if (user) {
+            return res.status(409).send();
+        }
+        await db.createUser(username, hashedPassword);
+        req.session.regenerate(function (err) {
+            if (err) return next(err);
+            // store user information in session, typically a user id
+            req.session.user = username;
+
+            // save the session before redirection to ensure page
+            // load does not happen before session is saved
+            req.session.save(function (err) {
+                if (err) return next(err);
+                return res.status(201).send();
+            });
         });
+    } catch (err) {
+        console.log(err);
+        return res.status(501).send();
+    }
+});
+
+router.post('/login', express.urlencoded({ extended: false }), async (req, res, next) => {
+    try {
+        const { username, password } = req.body;
+        const user = await db.getUser(username);
+        if (!user) {
+            return next({ status: 401 });
+        }
+        const match = await bcrypt.compare(password, user.hash);
+        if (!match) {
+            return next({ status: 401 });
+        }
+        req.session.regenerate(function (err) {
+            if (err) return next(err);
+            // store user information in session, typically a user id
+            req.session.user = username;
+
+            // save the session before redirection to ensure page
+            // load does not happen before session is saved
+            req.session.save(function (err) {
+                if (err) return next(err);
+                return res.status(200).send();
+            });
+        });
+    } catch (err) {
+        return next(err);
+    }
+});
+
+router.post('/logout', isAuthenticated, (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
 });
 
 module.exports = router;

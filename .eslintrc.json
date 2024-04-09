@@ -12,6 +12,9 @@
             "files": [
                 "src/public/**/*.js"
             ],
+            "parserOptions": {
+                "sourceType": "module"
+            },
             "env": {
                 "browser": true,
                 "es2022": true

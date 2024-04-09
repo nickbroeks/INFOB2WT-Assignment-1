@@ -13,8 +13,10 @@
         <link href="https://fonts.cdnfonts.com/css/gobold" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="css/info.css" />
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
-        <script src="js/info.js" defer></script>
+        <script src="js/book.js" type="module"></script>
+        <script src="js/info.js" type="module" defer></script>
         <script src="js/nav.js" defer></script>
+        <script src="js/user.js" type="module" defer></script>
     </head>
 
     <body id="home">
@@ -32,11 +34,11 @@
                     <div class="nav__menu" id="js-nav-menu">
                         <ul class="nav__list">
                             <li><a class="nav__link flex-container" href="info.html">Info</a></li>
-                            <li><a class="nav__link flex-container" href="news.html">News</a></li>
-                            <li><a class="nav__link flex-container" href="summary.html">Summary</a></li>
-                            <li><a class="nav__link flex-container" href="stats.html">Stats</a></li>
                             <li><a class="nav__link flex-container" href="contact.html">Contact</a></li>
-                            <li><a class="nav__link flex-container" href="login.html">Login</a></li>
+                            <li>
+                                <a id="js-login-button" class="nav__link flex-container" href="login.html">Login</a>
+                                <span id="js-logout-button" class="nav__link flex-container hidden">Logout</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
