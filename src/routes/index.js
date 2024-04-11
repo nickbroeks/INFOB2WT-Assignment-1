@@ -25,14 +25,13 @@ router.get('/user', (req, res) => {
 
 router.post('/register', async (req, res, next) => {
     try {
-        const { username, password, name, email, address } = req.body;
+        const { username, password, email, address } = req.body;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
-        console.log(username, password, hashedPassword, name, email, address);
         const user = await db.getUser(username);
         if (user) {
             return res.status(409).send();
         }
-        await db.createUser(username, hashedPassword, name, email, address);
+        await db.createUser(username, hashedPassword, email, address);
         req.session.regenerate(function (err) {
             if (err) return next(err);
             // store user information in session, typically a user id

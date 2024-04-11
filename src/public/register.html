@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/login.css" />
         <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
         <script src="js/nav.js" defer></script>
-        <script src="js/user.js" defer></script>
+        <script src="js/user.js" defer type="module"></script>
         <script src="js/register.js" defer></script>
     </head>
 
@@ -61,10 +61,10 @@
                     alt="Wallpaper Background Image"
                 />
                 <div class="register-block build-border login-block text-center">
-                    <h1 class="title no-margin">Login</h1>
+                    <h1 class="title no-margin">Register</h1>
                     <form class="login-form" name="login_data" action="http://localhost:8001/processForm" method="POST">
-                        <p>
-                            Username:
+                        <div>
+                            <label for="username">Username:</label>
                             <input
                                 id="username"
                                 class="form__input"
@@ -73,9 +73,9 @@
                                 placeholder="Username"
                                 required
                             />
-                        </p>
-                        <p>
-                            Password:
+                        </div>
+                        <div>
+                            <label for="password">Password: </label>
                             <input
                                 id="password"
                                 class="form__input"
@@ -83,13 +83,9 @@
                                 name="password"
                                 placeholder="Password"
                             />
-                        </p>
-                        <p>
-                            Name:<br />
-                            <input id="name" class="form__input" type="text" name="name" placeholder="Name" required />
-                        </p>
-                        <p>
-                            Email:<br />
+                        </div>
+                        <div>
+                            <label for="email">Email: </label>
                             <input
                                 id="email"
                                 class="form__input"
@@ -98,9 +94,9 @@
                                 placeholder="Email"
                                 required
                             />
-                        </p>
-                        <p>
-                            Address:
+                        </div>
+                        <div>
+                            <label for="address">Address:</label>
                             <input
                                 id="address"
                                 class="form__input"
@@ -109,7 +105,7 @@
                                 placeholder="Address"
                                 required
                             />
-                        </p>
+                        </div>
 
                         <div class="flex-container-col">
                             <button

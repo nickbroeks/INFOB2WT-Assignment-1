@@ -1,7 +1,6 @@
 document.querySelector('#register-btn').addEventListener('click', async () => {
     const username = document.querySelector('#username').value;
     const password = document.querySelector('#password').value;
-    const name = document.querySelector('#name').value;
     const email = document.querySelector('#email').value;
     const address = document.querySelector('#address').value;
 

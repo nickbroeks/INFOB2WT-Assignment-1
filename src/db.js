@@ -43,12 +43,16 @@ async function getAllUsers() {
     });
 }
 
-async function createUser(name, hash) {
+async function createUser(name, hash, email, address) {
     return new Promise((resolve, reject) => {
-        db.run('INSERT INTO Users (id, name, hash) VALUES (?, ?, ?)', [randomUUID(), name, hash], function (err) {
-            if (err) reject(err);
-            else resolve();
-        });
+        db.run(
+            'INSERT INTO Users (id, name, hash, email, address) VALUES (?, ?, ?, ?, ?)',
+            [randomUUID(), name, hash, email, address],
+            function (err) {
+                if (err) reject(err);
+                else resolve();
+            }
+        );
     });
 }
 
