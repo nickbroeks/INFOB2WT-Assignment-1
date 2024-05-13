@@ -11,34 +11,31 @@ class User {
         return this.#registered;
     }
 }
-let userStatus = 'not_defined';
-let user = undefined;
+let isUpdated = false;
+
+let globalUser = new User();
 
 async function getUser() {
-    return await user;
+    const user = await updateUser();
+    return user;
 }
 async function updateUser() {
-    if (userStatus == 'done') {
-        return user;
-    } else if (userStatus == 'updating') {
-        return await user;
+    if (isUpdated) {
+        return globalUser;
     }
-    userStatus = 'updating';
-    user = await fetch('/user')
+    await fetch('/user')
         .then((res) => {
             if (res.ok) return res.json();
-            return null;
         })
         .then((data) => {
             if (!data || !data.user) return;
-            userStatus = 'done';
-            user = new User(data.user.username);
+            globalUser = new User(data.user.name, true);
+            isUpdated = true;
         });
-    return user;
+    return globalUser;
 }
 async function updateLogin() {
     const loggedIn = await isLoggedIn();
-    console.log(loggedIn);
     if (loggedIn) {
         showLogout();
     }
@@ -62,9 +59,9 @@ function logOut() {
 }
 
 async function isLoggedIn() {
-    await updateUser();
+    const user = await getUser();
     return user.registered;
 }
 updateLogin();
 
-export { user, User, isLoggedIn };
+export { getUser, User, isLoggedIn };

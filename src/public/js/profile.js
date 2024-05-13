@@ -1,4 +1,4 @@
-import { user, isLoggedIn } from './user.js';
+import { getUser, isLoggedIn } from './user.js';
 
 async function fillProfile() {
     const loggedIn = await isLoggedIn();
@@ -6,6 +6,7 @@ async function fillProfile() {
         console.log('not logged in');
         return;
     }
+    const user = await getUser();
     console.log(user);
 }
 
