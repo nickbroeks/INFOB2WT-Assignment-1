@@ -1,5 +1,5 @@
 CREATE TABLE Users (id TEXT PRIMARY KEY, name TEXT, hash TEXT, email TEXT, address TEXT);
-INSERT INTO Users (id, name, hash, email, adress) VALUES
+INSERT INTO Users (id, name, hash, email, address) VALUES
     ("4dea5a94-92b1-41e9-8fa4-f7a69680fbb3", "user1", "$2b$10$57TmZMb3R3S8ArtA9y2XZeX0s/hIer0qmlljvCVlfn7kIQ1zHvWD.", "user1@example.com", "123 Main St."),
     ("5a3b749a-fd1d-499d-9709-3189df034c0e", "user2", "$2b$10$kvoM2g1kWSCdwaBBYPaPWO4a2AaIl/i1O3eixWP9nupf4ZX3LT77.", "user2@example.com", "456 Elm St."),
     ("7296bc11-0676-4b64-b042-044a3a9a801b", "user3", "$2b$10$P3vwlj95uvEKyPGeBI0puOEci3WJOYs62nT7TsEnmvShyXUAW6Guy", "user3@example.com", "789 Oak St."),

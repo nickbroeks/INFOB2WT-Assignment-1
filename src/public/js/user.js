@@ -2,23 +2,46 @@ class User {
     #name;
     #registered;
 
-    constructor(name, registered) {
-        this.#name = name || '';
-        this.#registered = registered || false;
+    constructor(name = '', registered = false) {
+        this.#name = name;
+        this.#registered = registered;
+    }
+
+    get registered() {
+        return this.#registered;
     }
 }
-let user = new User();
-function updateLogin() {
-    fetch('/user')
+let userStatus = 'not_defined';
+let user = undefined;
+
+async function getUser() {
+    return await user;
+}
+async function updateUser() {
+    if (userStatus == 'done') {
+        return user;
+    } else if (userStatus == 'updating') {
+        return await user;
+    }
+    userStatus = 'updating';
+    user = await fetch('/user')
         .then((res) => {
-            if (res.status === 200) return res.json();
+            if (res.ok) return res.json();
             return null;
         })
         .then((data) => {
             if (!data || !data.user) return;
-            user = new User();
-            showLogout();
+            userStatus = 'done';
+            user = new User(data.user.username);
         });
+    return user;
+}
+async function updateLogin() {
+    const loggedIn = await isLoggedIn();
+    console.log(loggedIn);
+    if (loggedIn) {
+        showLogout();
+    }
 }
 
 function showLogout() {
@@ -37,6 +60,11 @@ function logOut() {
         window.location.href = '/';
     });
 }
+
+async function isLoggedIn() {
+    await updateUser();
+    return user.registered;
+}
 updateLogin();
 
-export { user, User };
+export { user, User, isLoggedIn };

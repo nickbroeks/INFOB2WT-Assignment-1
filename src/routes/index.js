@@ -18,9 +18,11 @@ router.get('/users', isAuthenticated, (req, res) => {
 
 router.get('/user', (req, res) => {
     if (!req.session.user) {
-        return res.status(200).send({});
+        return res.status(200).send({ status: 'not logged in' });
     }
-    res.json({ user: req.session.user });
+    db.getUser(req.session.user).then((user) => {
+        res.json({ user }).status(200);
+    });
 });
 
 router.post('/register', async (req, res, next) => {
@@ -81,15 +83,6 @@ router.post('/login', express.urlencoded({ extended: false }), async (req, res, 
 router.post('/logout', isAuthenticated, (req, res) => {
     req.session.destroy();
     res.redirect('/');
-});
-
-router.get('/profile.html', (req, res) => {
-    if (!req.session.user) {
-        return res.status(403).send({});
-    }
-    const user = db.getUser(req.session.user);
-    console.log(user);
-    res.json(user);
 });
 
 module.exports = router;
